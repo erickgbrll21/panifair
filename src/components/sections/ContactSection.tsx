@@ -4,14 +4,20 @@ import { DotPattern } from "@/components/magicui/dot-pattern";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { PANIFAIR_WHATSAPP_NUMBER } from "@/lib/constants";
+import {
+  PANIFAIR_EMAIL,
+  PANIFAIR_PHONE_DISPLAY,
+  PANIFAIR_PHONE_TEL,
+} from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function ContactSection() {
-  const whatsappDisplay = "+55 (11) 4002-8922";
 
   return (
-    <section className="section-warm-mid relative overflow-hidden pb-[clamp(4rem,10vw,8rem)] pt-28 md:pt-32">
+    <section
+      id="contato"
+      className="section-warm-mid relative overflow-hidden pb-[var(--section-spacing-y)] pt-28 md:pt-32"
+    >
       <DotPattern className="opacity-[0.12]" />
       <div
         aria-hidden
@@ -42,24 +48,24 @@ export function ContactSection() {
                 <li>
                   <a
                     href={buildWhatsAppUrl("Olá! Gostaria de informações sobre a PANIFAIR 2027.")}
-                    className="flex items-center gap-3 transition-colors hover:text-[#d4a870]"
+                    className="flex items-center gap-3 transition-colors hover:text-[#7a5532]"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MessageCircle className="h-4 w-4 shrink-0 text-[#b08450]" />
-                    WhatsApp · {whatsappDisplay}
+                    <MessageCircle className="h-4 w-4 shrink-0 text-[#b08450]" aria-hidden="true" />
+                    WhatsApp · {PANIFAIR_PHONE_DISPLAY}
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="h-4 w-4 shrink-0 text-[#b08450]" />
-                  <a href="mailto:expositores@panifair.com.br" className="hover:text-[#d4a870]">
-                    expositores@panifair.com.br
+                  <Mail className="h-4 w-4 shrink-0 text-[#b08450]" aria-hidden="true" />
+                  <a href={`mailto:${PANIFAIR_EMAIL}`} className="hover:text-[#7a5532]">
+                    {PANIFAIR_EMAIL}
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone className="h-4 w-4 shrink-0 text-[#b08450]" />
-                  <a href={`tel:+${PANIFAIR_WHATSAPP_NUMBER}`} className="hover:text-[#d4a870]">
-                    {whatsappDisplay}
+                  <Phone className="h-4 w-4 shrink-0 text-[#b08450]" aria-hidden="true" />
+                  <a href={`tel:${PANIFAIR_PHONE_TEL}`} className="hover:text-[#7a5532]">
+                    {PANIFAIR_PHONE_DISPLAY}
                   </a>
                 </li>
               </ul>
@@ -68,7 +74,7 @@ export function ContactSection() {
 
           <Reveal delay={0.1}>
             <div className="rounded-2xl border border-[rgba(176,132,80,0.18)] bg-[rgba(176,132,80,0.04)] p-6">
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#d4a870]">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#7a5532]">
                 O que preparar
               </p>
               <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[#5c4d3e]">
@@ -78,7 +84,7 @@ export function ContactSection() {
               </ul>
               <Link
                 href="/#estandes"
-                className="mt-5 inline-flex text-sm font-medium text-[#d4a870] transition-colors hover:text-[#e8c87a]"
+                className="mt-5 inline-flex text-sm font-medium text-[#7a5532] transition-colors hover:text-[#452816]"
               >
                 Ver tipos de estande →
               </Link>

@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Geist } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
-import { GsapAnimations } from "@/components/layout/GsapAnimations";
+import { PANIFAIR_ADDRESS, PANIFAIR_EMAIL, PANIFAIR_PHONE_DISPLAY } from "@/lib/constants";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -63,9 +66,9 @@ export const metadata: Metadata = {
       "Reservar estande na PANIFAIR 2027. 25.000+ visitantes qualificados, 450+ expositores, 35+ países. Garanta sua presença.",
     images: [
       {
-        url: "/logo.svg",
-        width: 549,
-        height: 203,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "PANIFAIR 2027 — Feira Internacional da Panificação",
       },
     ],
@@ -75,7 +78,7 @@ export const metadata: Metadata = {
     title: "PANIFAIR 2027 — Seja Expositor",
     description:
       "A maior feira internacional de panificação. Reserve seu estande e acelere seus negócios B2B.",
-    images: ["/logo.svg"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: siteUrl,
@@ -91,13 +94,13 @@ const jsonLd = {
       "@id": `${siteUrl}/#organization`,
       name: "PANIFAIR",
       url: siteUrl,
-      logo: `${siteUrl}/logo.svg`,
+      logo: `${siteUrl}/logo.png`,
       description: "Feira Internacional da Panificação",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+55-11-4002-8922",
+        telephone: PANIFAIR_PHONE_DISPLAY,
         contactType: "sales",
-        email: "expositores@panifair.com.br",
+        email: PANIFAIR_EMAIL,
         availableLanguage: ["Portuguese", "English", "Spanish"],
       },
     },
@@ -107,18 +110,19 @@ const jsonLd = {
       name: "PANIFAIR 2027 — Feira Internacional da Panificação",
       description:
         "A maior feira internacional de panificação da América Latina, focada em expositores B2B do setor alimentício.",
-      startDate: "2027-08-18T10:00:00-03:00",
-      endDate: "2027-08-21T20:00:00-03:00",
+      startDate: "2027-04-15T10:00:00-03:00",
+      endDate: "2027-04-17T20:00:00-03:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: {
         "@type": "Place",
-        name: "São Paulo Expo",
+        name: PANIFAIR_ADDRESS.line,
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Rodovia dos Imigrantes, Km 1,5",
-          addressLocality: "São Paulo",
-          addressRegion: "SP",
+          streetAddress: PANIFAIR_ADDRESS.street,
+          addressLocality: PANIFAIR_ADDRESS.city,
+          addressRegion: PANIFAIR_ADDRESS.state,
+          postalCode: PANIFAIR_ADDRESS.postalCode,
           addressCountry: "BR",
         },
       },
@@ -150,7 +154,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${poppins.variable} scroll-smooth`}>
+    <html lang="pt-BR" className={cn("scroll-smooth", poppins.variable, "font-sans", geist.variable)}>
       <head>
         <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <script
@@ -160,7 +164,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-[#ede2c9] font-sans text-[#452816] antialiased">
         <ScrollProgress />
-        <GsapAnimations />
         <Header />
         <main>{children}</main>
         <Footer />

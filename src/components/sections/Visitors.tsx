@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Factory,
   Truck,
@@ -49,7 +47,7 @@ export function Visitors() {
             <Reveal key={profile} delay={i * 0.03}>
               <div className="glass-card group flex flex-col items-center rounded-2xl p-6 text-center transition-colors duration-300 hover:border-[#a67c52] hover:bg-[rgba(166,124,82,0.06)]">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(166,124,82,0.1)] text-[#a67c52]">
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <span className="fg-primary text-sm font-medium">{profile}</span>
               </div>

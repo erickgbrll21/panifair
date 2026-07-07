@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, MapPin } from "lucide-react";
@@ -52,7 +50,7 @@ export function Edicao2026Hero() {
         <Reveal delay={0.15}>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#c4b8a8] md:text-xl">
             {EDICAO_2026.tagline} Relembre os números, destaques e momentos que
-            marcaram {EDICAO_2026.dates} no {EDICAO_2026.venue}.
+            marcaram {EDICAO_2026.dates} em {EDICAO_2026.city}.
           </p>
         </Reveal>
 
@@ -64,7 +62,7 @@ export function Edicao2026Hero() {
             </span>
             <span className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-[#a67c52]" />
-              {EDICAO_2026.venue} · {EDICAO_2026.city}
+              {EDICAO_2026.city}
             </span>
           </div>
         </Reveal>

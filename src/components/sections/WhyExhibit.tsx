@@ -1,5 +1,3 @@
-"use client";
-
 import {
   TrendingUp,
   Users,
@@ -34,7 +32,7 @@ export function WhyExhibit() {
       <SectionHeading
         eyebrow="Oportunidade estratégica"
         title="Por que expor na PANIFAIR 2027?"
-        description="Não participar significa ceder espaço aos concorrentes. A feira concentra em quatro dias o que sua equipe comercial levaria meses para alcançar."
+        description="Não participar significa ceder espaço aos concorrentes. A feira concentra em três dias o que sua equipe comercial levaria meses para alcançar."
       />
 
       <div className="container-panifair grid gap-6 md:grid-cols-2 lg:grid-cols-3">

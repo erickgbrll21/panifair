@@ -17,36 +17,10 @@ const ShimmerOverlay = () => (
   />
 );
 
-export type ShimmerButtonProps = ShimmerStyleProps & ComponentPropsWithoutRef<"button">;
-
 export type ShimmerLinkProps = ShimmerStyleProps &
   ComponentPropsWithoutRef<"a"> & {
     href: string;
   };
-
-export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
-  (
-    {
-      background = "linear-gradient(135deg, #e8c87a 0%, #d4a870 30%, #b08450 65%, #7a5532 100%)",
-      className,
-      children,
-      ...props
-    },
-    ref,
-  ) => (
-    <button
-      ref={ref}
-      style={{ background } as CSSProperties}
-      className={cn(shimmerClasses, "text-[#160f08] shadow-[0_4px_24px_rgba(176,132,80,0.35)]", className)}
-      {...props}
-    >
-      <ShimmerOverlay />
-      {children}
-    </button>
-  ),
-);
-
-ShimmerButton.displayName = "ShimmerButton";
 
 export const ShimmerLink = React.forwardRef<HTMLAnchorElement, ShimmerLinkProps>(
   (

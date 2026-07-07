@@ -1,70 +1,76 @@
-"use client";
-
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { DotPattern } from "@/components/magicui/dot-pattern";
 
 export function Curator() {
   return (
-    <section
-      id="idealizador"
-      className="section-dark relative overflow-hidden pt-10 pb-[clamp(4rem,10vw,8rem)] md:pt-14"
-    >
-      <DotPattern className="opacity-[0.14]" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/3 h-[480px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(176,132,80,0.05)] blur-[120px]"
-      />
-
-      <SectionHeading
-        eyebrow="Quem idealiza"
-        title="Idealizador e Curador: Junior Maffille"
-        description="A visão por trás da PANIFAIR — conectando tradição, inovação e o futuro da panificação em um evento de alcance nacional e internacional."
-      />
-
-      <div className="container-panifair grid gap-10 lg:grid-cols-2 lg:items-end lg:gap-16">
-        <Reveal delay={0.2} className="order-2 flex items-end justify-center lg:order-1 lg:justify-start">
-          <div className="relative aspect-[4/5] w-full max-w-md overflow-visible lg:max-w-none">
-            <div aria-hidden className="curator-portrait-glow pointer-events-none absolute -inset-x-[10%] bottom-[-2%] top-[8%] z-0" />
-            <Image
-              src="/junior-maffille.png"
-              alt="Junior Maffille — Idealizador e Curador da PANIFAIR"
-              width={1200}
-              height={1500}
-              className="relative z-10 h-full w-full object-contain object-bottom"
-              sizes="(max-width: 1024px) 90vw, 45vw"
+    <div className="mt-0 grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <Reveal delay={0.1} className="order-2 lg:order-1 lg:col-span-5">
+          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-4 top-2 z-0 h-[calc(100%-1.5rem)] w-[calc(100%-1.5rem)] rounded-[1.75rem] border border-[rgba(176,132,80,0.35)] md:top-3"
             />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-3 -left-3 z-0 h-24 w-24 rounded-br-[2rem] border-b-2 border-l-2 border-[#b08450]"
+            />
+
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem]">
+              <div
+                aria-hidden
+                className="curator-portrait-glow pointer-events-none absolute -inset-x-[8%] bottom-[-2%] top-[6%] z-0 opacity-40"
+              />
+              <Image
+                src="/junior-maffille-curador.png"
+                alt="Júnior Maffille — Idealizador e Curador da PANIFAIR"
+                width={800}
+                height={1000}
+                className="relative z-10 h-full w-full object-cover object-[center_20%]"
+                sizes="(max-width: 1024px) 85vw, 38vw"
+              />
+            </div>
+
+            <div className="glass-card absolute -bottom-5 left-6 right-6 z-20 rounded-2xl px-6 py-5 shadow-[0_16px_48px_rgba(69,40,22,0.18)] md:left-8 md:right-auto md:min-w-[16rem]">
+              <p className="fg-primary text-xl font-extrabold tracking-tight">
+                Júnior Maffille
+              </p>
+              <p className="mt-1.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#7a5532] md:text-[11px]">
+                <span className="pulse-glow-bronze h-1.5 w-1.5 shrink-0 rounded-full bg-[#b08450]" />
+                Idealizador e Curador · PANIFAIR
+              </p>
+            </div>
           </div>
         </Reveal>
 
-        <div className="order-1 space-y-6 lg:order-2">
+        <div className="order-1 lg:order-2 lg:col-span-7">
           <Reveal delay={0.05}>
-            <p className="fg-primary text-lg leading-relaxed md:text-xl">
-              Junior Maffille é o idealizador e curador da PANIFAIR, responsável por
-              moldar a identidade, a programação e a experiência de um dos principais
-              encontros do setor de panificação no Brasil.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <p className="fg-muted text-base leading-relaxed md:text-lg">
-              Com olhar estratégico e profundo conhecimento do mercado, conduz a feira
-              como um espaço de negócios, tendências e conexões de alto valor para
-              expositores, visitantes e parceiros do ecossistema panificador.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <div className="inline-flex items-center gap-3 rounded-full border border-[rgba(232,200,122,0.25)] bg-[rgba(176,132,80,0.08)] px-5 py-2.5">
-              <span className="pulse-glow-bronze h-1.5 w-1.5 rounded-full bg-[#e8c87a]" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#d4a870]">
-                Idealizador e Curador · PANIFAIR
-              </span>
+            <div className="space-y-4">
+              <p className="fg-muted text-base leading-relaxed md:text-lg">
+                Criado na zona rural de Viçosa, em Minas Gerais, Júnior Maffille
+                iniciou sua trajetória no empreendedorismo ainda muito jovem, aos
+                10 anos. Desde então, construiu uma história marcada pelo
+                trabalho, pela perseverança e pela capacidade de transformar
+                desafios em oportunidades.
+              </p>
+              <p className="fg-muted text-base leading-relaxed md:text-lg">
+                Com mais de 26 anos de experiência no setor de panificação,
+                Júnior consolidou-se como uma das principais referências do
+                segmento. Atualmente, comanda uma rede de padarias, restaurantes
+                e empresas correlatas, além de atuar como mentor e assessor
+                estratégico de mais de 56 CNPJs. Sob sua liderança, esses
+                negócios empregam cerca de 1.300 colaboradores e movimentam,
+                anualmente, dezenas de milhões de reais.
+              </p>
+              <p className="fg-muted text-base leading-relaxed md:text-lg">
+                Sua atuação vai além da gestão empresarial. Júnior Maffille
+                acredita no empreendedorismo como ferramenta de transformação
+                social, geração de empregos e construção de legado. Sua visão une
+                fé, disciplina, conhecimento prático e profundo respeito pelas
+                pessoas que constroem o negócio diariamente.
+              </p>
             </div>
           </Reveal>
         </div>
-      </div>
-    </section>
+    </div>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";

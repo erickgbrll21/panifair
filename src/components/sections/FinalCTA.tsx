@@ -1,17 +1,19 @@
-"use client";
-
-import Link from "next/link";
 import { ArrowRight, Mail, Phone, Sparkles } from "lucide-react";
 import { ShimmerLink } from "@/components/magicui/shimmer-button";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { Reveal } from "@/components/ui/reveal";
 import { Button } from "@/components/ui/button";
+import {
+  PANIFAIR_EMAIL,
+  PANIFAIR_PHONE_DISPLAY,
+  PANIFAIR_PHONE_TEL,
+} from "@/lib/constants";
 
 export function FinalCTA() {
   return (
     <section
       id="contato"
-      className="section-dark relative overflow-hidden py-28 md:py-36"
+      className="section-dark section-padding relative overflow-hidden"
     >
       <DotPattern className="opacity-15" />
 
@@ -49,20 +51,20 @@ export function FinalCTA() {
               </ShimmerLink>
 
               <Button variant="outline" size="lg" asChild>
-                <Link href="mailto:expositores@panifair.com.br">
+                <a href={`mailto:${PANIFAIR_EMAIL}`}>
                   <Mail className="h-4 w-4" />
-                  expositores@panifair.com.br
-                </Link>
+                  {PANIFAIR_EMAIL}
+                </a>
               </Button>
             </div>
 
             <div className="fg-muted mt-8 flex flex-wrap items-center justify-center gap-6 text-sm">
               <a
-                href="tel:+551140028922"
+                href={`tel:${PANIFAIR_PHONE_TEL}`}
                 className="flex items-center gap-2 transition-colors hover:text-[#d4a870]"
               >
                 <Phone className="h-4 w-4 text-[#b08450]" />
-                +55 (11) 4002-8922
+                {PANIFAIR_PHONE_DISPLAY}
               </a>
               <span className="hidden h-4 w-px bg-[rgba(176,132,80,0.3)] sm:block" />
               <span>Resposta em até 24 horas úteis</span>

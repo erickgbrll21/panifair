@@ -1,5 +1,3 @@
-"use client";
-
 import { Map, Maximize2, Users, Zap } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -50,7 +48,7 @@ export function FloorPlan() {
 
             <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
               {[
-                { icon: Maximize2, label: "28.000 m²", desc: "Área total" },
+                { icon: Maximize2, label: "28.000 m²", desc: "Área expositiva" },
                 { icon: Users, label: "450+", desc: "Estandes" },
                 { icon: Map, label: "4", desc: "Pavilhões" },
                 { icon: Zap, label: "360°", desc: "Fluxo otimizado" },

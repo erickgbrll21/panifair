@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
@@ -8,7 +6,7 @@ import { DotPattern } from "@/components/magicui/dot-pattern";
 
 export function Edicao2026CTA() {
   return (
-    <section className="section-warm relative overflow-hidden py-24 md:py-32">
+    <section className="section-warm section-padding relative overflow-hidden">
       <DotPattern className="opacity-20" />
 
       <div className="container-panifair relative z-10 text-center">

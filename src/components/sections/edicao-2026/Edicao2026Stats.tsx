@@ -1,5 +1,3 @@
-"use client";
-
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";

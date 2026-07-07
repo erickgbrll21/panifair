@@ -1,5 +1,3 @@
-"use client";
-
 import { Quote } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";

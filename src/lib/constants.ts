@@ -1,4 +1,6 @@
-export const EVENT_DATE = new Date("2027-08-18T09:00:00-03:00");
+export const EVENT_DATE = new Date("2027-04-15T09:00:00-03:00");
+export const EVENT_DATE_END = new Date("2027-04-17T20:00:00-03:00");
+export const EVENT_DATES_LABEL = "15 a 17 de Abril de 2027";
 
 export const NAV_LINKS = [
   { href: "/#por-que-expor", label: "Por que expor" },
@@ -22,6 +24,30 @@ export const CONTACT_LINK = {
 } as const;
 
 export const PANIFAIR_WHATSAPP_NUMBER = "551140028922";
+
+export const PANIFAIR_PHONE_DISPLAY = "+55 (11) 4002-8922";
+export const PANIFAIR_PHONE_TEL = "+551140028922";
+export const PANIFAIR_EMAIL = "expositores@panifair.com.br";
+
+export const PANIFAIR_ADDRESS = {
+  street: "Av. Pastor Anselmo Silvestre, nº 1495 – 4º andar",
+  neighborhood: "União",
+  city: "Belo Horizonte",
+  state: "MG",
+  postalCode: "31170-678",
+  cep: "31.170.678",
+  line: "Av. Pastor Anselmo Silvestre, nº 1495 – 4º andar | União | Belo Horizonte – MG",
+  lineWithCep:
+    "Av. Pastor Anselmo Silvestre, nº 1495 – 4º andar | União | Belo Horizonte – MG · CEP 31.170.678",
+  cityState: "Belo Horizonte – MG",
+  mapsQuery: "Av. Pastor Anselmo Silvestre, 1495, União, Belo Horizonte, MG",
+} as const;
+
+export const VENUE_STATS = [
+  { value: 57, suffix: " mil m²", label: "Área total do evento" },
+  { value: 14, suffix: " metros", label: "Pé-direito máximo" },
+  { value: 210, suffix: " m²", label: "Padaria modelo" },
+] as const;
 
 export const BOOTH_INTEREST_OPTIONS = [
   "Estande Standard",
@@ -154,7 +180,6 @@ export const BOOTH_TYPES = [
   {
     name: "Estande Standard",
     size: "9m² a 18m²",
-    price: "A partir de R$ 12.800",
     features: [
       "Piso carpete cinza",
       "Parede divisória branca",
@@ -167,7 +192,6 @@ export const BOOTH_TYPES = [
   {
     name: "Estande Premium",
     size: "24m² a 48m²",
-    price: "A partir de R$ 28.500",
     features: [
       "Montagem personalizada",
       "Mobiliário executivo",
@@ -181,7 +205,6 @@ export const BOOTH_TYPES = [
   {
     name: "Estande Ilha",
     size: "54m² a 200m²",
-    price: "Sob consulta",
     features: [
       "Projeto arquitetônico exclusivo",
       "Visibilidade 360°",
@@ -198,43 +221,54 @@ export const TESTIMONIALS = [
   {
     quote:
       "Fechamos contratos que representam 40% da nossa meta anual em apenas três dias. A PANIFAIR é o evento mais estratégico do nosso calendário comercial.",
-    author: "Carlos Mendes",
-    role: "Diretor Comercial",
-    company: "TechBake Equipamentos",
+    author: "Dr. Márcio Botelho",
+    role: "CEO e Fundador",
+    company: "Botelho e Castro Advogados",
   },
   {
     quote:
       "Conseguimos 847 leads qualificados e 23 distribuidores interessados. O ROI superou qualquer ação de marketing B2B que já realizamos.",
-    author: "Ana Paula Ribeiro",
-    role: "CEO",
-    company: "Ingredientes Premium SA",
+    author: "Ygor Alouan",
+    role: "CEO e Co-Fundador",
+    company: "Grupo Alouan Business Solutions",
   },
   {
     quote:
       "Nossa marca ganhou visibilidade internacional. Recebemos propostas de exportação para 8 países que jamais teríamos alcançado sozinhos.",
-    author: "Roberto Silva",
-    role: "Gerente de Exportação",
-    company: "Embalagens Gourmet",
+    author: "Willam Sferra",
+    role: "CEO e Fundador",
+    company: "KTG Group",
+  },
+  {
+    quote:
+      "A PANIFAIR conectou nossa marca a parceiros estratégicos e fortaleceu nossa presença no mercado com resultados concretos de negócios.",
+    author: "Priscila Infanger",
+    role: "CHRO",
+    company: "Cinépolis",
   },
 ] as const;
 
-export const PARTICIPATING_COMPANIES = [
-  "Bimbo",
-  "Wickbold",
-  "Puratos",
-  "Lesaffre",
-  "Bunge",
-  "Kerry",
-  "Rational",
-  "Unox",
-  "Metos",
-  "Sottoriva",
-  "Revent",
-  "Frigomat",
-  "Daub",
-  "Bralyx",
-  "Angefort",
-  "Polinox",
+export const APOIADORES = [
+  {
+    name: "Maffille Consultoria e Assessoria",
+    logo: "/apoiadores/maffille-consultoria.png",
+  },
+  {
+    name: "Maffille",
+    logo: "/apoiadores/maffille-2.svg",
+  },
+  {
+    name: "Maffille Digital",
+    logo: "/apoiadores/maffille-digital.svg",
+  },
+  {
+    name: "Tributalize",
+    logo: "/apoiadores/tributalize.svg",
+  },
+  {
+    name: "Dimensão Montagens",
+    logo: "/apoiadores/dimensao-montagens.svg",
+  },
 ] as const;
 
 export const FAQ_ITEMS = [

@@ -1,12 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
-import { useHydrated } from "@/hooks/useHydrated";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface NumberTickerProps {
   value: number;
@@ -23,6 +18,8 @@ function formatValue(val: number, decimals: number, prefix: string, suffix: stri
   }).format(val)}${suffix}`;
 }
 
+const DURATION_MS = 1600;
+
 export function NumberTicker({
   value,
   className,
@@ -31,64 +28,41 @@ export function NumberTicker({
   prefix = "",
 }: NumberTickerProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const hydrated = useHydrated();
   const display = formatValue(value, decimalPlaces, prefix, suffix);
 
   useEffect(() => {
-    if (!hydrated) return;
-
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.textContent = display;
-      return;
-    }
+    let raf = 0;
 
-    let tween: gsap.core.Tween | undefined;
-    let trigger: ScrollTrigger | undefined;
-    let hasAnimated = false;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
 
-    const animate = () => {
-      if (hasAnimated) return;
-      hasAnimated = true;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min((now - start) / DURATION_MS, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = formatValue(value * eased, decimalPlaces, prefix, suffix);
+          if (t < 1) raf = requestAnimationFrame(tick);
+        };
 
-      el.textContent = formatValue(0, decimalPlaces, prefix, suffix);
-      tween = gsap.to(
-        { val: 0 },
-        {
-          val: value,
-          duration: 1.6,
-          ease: "power2.out",
-          onUpdate() {
-            el.textContent = formatValue(
-              this.targets()[0].val,
-              decimalPlaces,
-              prefix,
-              suffix,
-            );
-          },
-        },
-      );
-    };
-
-    trigger = ScrollTrigger.create({
-      trigger: el,
-      start: "top 85%",
-      once: true,
-      onEnter: animate,
-    });
-
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
-      animate();
-    }
+        el.textContent = formatValue(0, decimalPlaces, prefix, suffix);
+        raf = requestAnimationFrame(tick);
+      },
+      { rootMargin: "0px 0px -15% 0px" },
+    );
+    observer.observe(el);
 
     return () => {
-      tween?.kill();
-      trigger?.kill();
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+      el.textContent = formatValue(value, decimalPlaces, prefix, suffix);
     };
-  }, [hydrated, value, decimalPlaces, prefix, suffix, display]);
+  }, [value, decimalPlaces, prefix, suffix]);
 
   return (
     <span ref={ref} className={cn("inline-block tabular-nums tracking-wider", className)}>

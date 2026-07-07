@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils";
 
 interface LightRaysProps extends React.HTMLAttributes<HTMLDivElement> {
   count?: number;
-  color?: string;
   blur?: number;
   length?: string;
 }
@@ -20,7 +19,6 @@ export function LightRays({
   className,
   style,
   count = 5,
-  color = "rgba(232, 200, 122, 0.24)",
   blur = 28,
   length = "82vh",
   ...props
@@ -32,7 +30,6 @@ export function LightRays({
       className={cn("hero-light-rays pointer-events-none absolute inset-0 overflow-hidden", className)}
       style={
         {
-          "--light-rays-color": color,
           "--light-rays-blur": `${blur}px`,
           "--light-rays-length": length,
           ...style,

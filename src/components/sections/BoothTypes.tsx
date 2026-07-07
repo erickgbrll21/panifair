@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Check, Star, ArrowRight } from "lucide-react";
 import { MagicCard } from "@/components/magicui/magic-card";
@@ -17,12 +15,10 @@ export function BoothTypes() {
         description="Escolha o formato ideal para seus objetivos comerciais. Vagas premium são limitadas — garanta posicionamento estratégico."
       />
 
-      <div className="container-panifair grid gap-8 lg:grid-cols-3">
+      <div className="container-panifair grid items-stretch gap-8 lg:grid-cols-3">
         {BOOTH_TYPES.map((booth, i) => (
-          <Reveal key={booth.name} delay={i * 0.08}>
-            <div
-              className={`relative h-full ${booth.highlight ? "lg:-mt-4 lg:mb-4" : ""}`}
-            >
+          <Reveal key={booth.name} delay={i * 0.08} className="h-full">
+            <div className="relative h-full">
               {booth.highlight && (
                 <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[rgba(176,132,80,0.06)] blur-sm" />
               )}
@@ -36,18 +32,16 @@ export function BoothTypes() {
                 {booth.highlight && (
                   <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-[rgba(232,200,122,0.6)] to-transparent" />
                 )}
-                {booth.highlight && (
-                  <div className="mb-5 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#d4a870]">
-                    <Star className="h-3.5 w-3.5 fill-[#d4a870]" />
-                    Mais popular
-                  </div>
-                )}
-                {!booth.highlight && <div className="mb-5 h-5" />}
+                <div className="mb-5 flex min-h-5 items-center">
+                  {booth.highlight && (
+                    <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#d4a870]">
+                      <Star className="h-3.5 w-3.5 fill-[#d4a870]" />
+                      Mais popular
+                    </div>
+                  )}
+                </div>
                 <h3 className="fg-primary text-xl font-bold">{booth.name}</h3>
                 <p className="fg-muted mt-1 text-sm">{booth.size}</p>
-                <p className={`mt-4 text-2xl font-extrabold ${booth.highlight ? "text-gradient-bronze" : "text-[#d4a870]"}`}>
-                  {booth.price}
-                </p>
 
                 <ul className="mt-6 flex-1 space-y-3">
                   {booth.features.map((feature) => (
@@ -58,11 +52,7 @@ export function BoothTypes() {
                   ))}
                 </ul>
 
-                <Button
-                  className="mt-8 w-full"
-                  variant={booth.highlight ? "default" : "outline"}
-                  asChild
-                >
+                <Button className="mt-8 w-full" variant="default" asChild>
                   <Link href="/contato">
                     Reservar estande
                     <ArrowRight />

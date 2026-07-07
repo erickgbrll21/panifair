@@ -1,8 +1,7 @@
 export const EDICAO_2026 = {
   year: 2026,
   dates: "19 a 22 de agosto de 2026",
-  venue: "São Paulo Expo",
-  city: "São Paulo, SP",
+  city: "Belo Horizonte – MG",
   tagline: "Quatro dias que consolidaram a PANIFAIR como referência B2B do setor.",
 } as const;
 
@@ -69,7 +68,7 @@ export const EDICAO_2026_MOMENTS = [
   },
   {
     title: "Encerramento",
-    description: "Balanco positivo e anúncio das datas da próxima edição em 2027.",
+    description: "Balanço positivo e anúncio das datas da próxima edição em 2027.",
     image:
       "https://images.unsplash.com/photo-1556912173-46c5c23b8a79?w=800&q=80",
   },

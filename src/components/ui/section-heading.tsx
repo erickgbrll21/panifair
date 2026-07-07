@@ -21,7 +21,7 @@ export function SectionHeading({
   return (
     <Reveal
       className={cn(
-        "container-panifair mb-16 max-w-3xl",
+        "container-panifair mb-[var(--section-heading-gap)] max-w-3xl",
         isCenter && "mx-auto text-center",
         className,
       )}

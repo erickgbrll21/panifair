@@ -1,5 +1,3 @@
-"use client";
-
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -35,7 +33,7 @@ export function MarketIndicators() {
               </p>
               <p className="fg-muted mt-3 text-sm leading-relaxed">{item.label}</p>
               <div className="fg-bronze mt-4 flex items-center gap-1.5 text-xs font-medium">
-                <TrendingUp className="h-3.5 w-3.5" />
+                <TrendingUp className="h-3.5 w-3.5" aria-hidden="true" />
                 {item.growth}
               </div>
             </div>

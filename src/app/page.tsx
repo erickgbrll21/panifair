@@ -1,6 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
 import { HeroIntro } from "@/components/sections/HeroIntro";
-import { Curator } from "@/components/sections/Curator";
 import { WhyExhibit } from "@/components/sections/WhyExhibit";
 import { Visitors } from "@/components/sections/Visitors";
 import { MarketIndicators } from "@/components/sections/MarketIndicators";
@@ -18,7 +17,6 @@ export default function Home() {
     <>
       <Hero />
       <HeroIntro />
-      <Curator />
       <WhyExhibit />
       <Visitors />
       <MarketIndicators />

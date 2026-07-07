@@ -11,9 +11,9 @@ import {
 } from "@/lib/whatsapp";
 
 const fieldClassName =
-  "w-full rounded-xl border border-[rgba(176,132,80,0.25)] bg-[rgba(176,132,80,0.05)] px-4 py-3 text-sm text-[#f8f3ee] outline-none transition-colors placeholder:text-[#6b5f52] focus:border-[rgba(232,200,122,0.5)] focus:ring-2 focus:ring-[rgba(176,132,80,0.2)]";
+  "w-full rounded-xl border border-[rgba(122,85,50,0.25)] bg-[rgba(255,252,245,0.6)] px-4 py-3 text-sm text-[#452816] outline-none transition-colors placeholder:text-[#9a8b7a] focus:border-[rgba(176,132,80,0.6)] focus:ring-2 focus:ring-[rgba(176,132,80,0.2)]";
 
-const labelClassName = "mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-[#9a8b7a]";
+const labelClassName = "mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-[#7a5532]";
 
 const initialForm: ExhibitorContactPayload = {
   name: "",
@@ -118,7 +118,7 @@ export function ContactForm() {
           className={fieldClassName}
         >
           {BOOTH_INTEREST_OPTIONS.map((option) => (
-            <option key={option} value={option} className="bg-[#111111] text-[#f8f3ee]">
+            <option key={option} value={option} className="bg-[#f5eedc] text-[#452816]">
               {option}
             </option>
           ))}

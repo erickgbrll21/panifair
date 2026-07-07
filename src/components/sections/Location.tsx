@@ -1,71 +1,251 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  Building2,
+  MapPin,
+  Maximize2,
+  Plane,
+  Sparkles,
+  TrainFront,
+} from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { SectionSideDecor } from "@/components/ui/section-side-decor";
 import { NumberTicker } from "@/components/magicui/number-ticker";
+import { Button } from "@/components/ui/button";
+import { PANIFAIR_ADDRESS, VENUE_STATS } from "@/lib/constants";
 
-const VENUE_STATS = [
-  { value: 57, suffix: " mil m²", label: "Área total do evento" },
-  { value: 14, suffix: " metros", label: "Pé-direito máximo" },
-  { value: 210, suffix: " m²", label: "Padaria modelo" },
-] as const;
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(PANIFAIR_ADDRESS.mapsQuery)}`;
+
+const TRANSPORT = [
+  {
+    icon: Plane,
+    time: "31 min",
+    title: "Aeroporto Internacional de Confins",
+    description: "Tancredo Neves International Airport — Belo Horizonte / Confins.",
+  },
+  {
+    icon: TrainFront,
+    time: "1 min",
+    title: "Estação de metrô",
+    description: "Minas Shopping — São Paulo, Belo Horizonte – MG, 31910-000.",
+  },
+];
 
 export function Location() {
   return (
-    <section id="local" className="section-warm-mid section-padding overflow-hidden">
+    <section id="local" className="section-warm-mid section-padding relative overflow-hidden">
+      <SectionSideDecor />
+
       <SectionHeading
         eyebrow="Onde acontece"
-        title="Local do evento"
-        description="Infraestrutura de classe mundial no coração econômico de Minas Gerais."
+        title="Um palco à altura do futuro da panificação"
+        description="Vista aérea do complexo que sediará a PANIFAIR em Belo Horizonte — infraestrutura de classe mundial no coração econômico de Minas Gerais."
       />
 
-      <div className="container-panifair grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div className="container-panifair relative z-10">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-[rgba(176,132,80,0.14)] blur-[110px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[rgba(232,200,122,0.12)] blur-[120px]"
+        />
+        {/* Cinematic video showcase */}
         <Reveal>
-          <div className="relative aspect-video overflow-hidden rounded-2xl border border-[rgba(166,124,82,0.2)] lg:aspect-[4/3]">
-            <Image
-              src="/hero-bg.jpg"
-              alt="Centerminas Expo — Local do evento PANIFAIR"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6">
-              <p className="text-lg font-bold text-[#f5f0eb]">Centerminas Expo</p>
-              <p className="text-sm text-[#c4b8a8]">Belo Horizonte, MG</p>
+          <div className="group relative overflow-hidden rounded-[2rem] border border-[rgba(122,85,50,0.28)] bg-[#160f08] shadow-[0_40px_100px_-30px_rgba(69,40,22,0.55)]">
+            <div className="relative overflow-hidden">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03] sm:aspect-[16/9] md:aspect-[21/8]"
+                aria-label="Vídeo aéreo do local do evento PANIFAIR em Belo Horizonte"
+              >
+                <source src="/panifair-local.mp4" type="video/mp4" />
+              </video>
+
+              {/* Gradients */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0d0906] via-[#0d0906]/40 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0d0906]/70 via-transparent to-transparent" />
+            </div>
+
+            {/* Top badges */}
+            <div className="absolute left-5 right-5 top-5 z-10 flex flex-wrap items-center justify-between gap-3 md:left-8 md:right-8 md:top-8">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(232,200,122,0.35)] bg-[rgba(22,15,8,0.6)] px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#e8c87a] backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#e8c87a] opacity-70" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#e8c87a]" />
+                </span>
+                Vista aérea · Drone
+              </div>
+              <div className="hidden items-center gap-2 rounded-full border border-[rgba(232,200,122,0.25)] bg-[rgba(22,15,8,0.55)] px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#ddcfaa] backdrop-blur-md md:inline-flex">
+                <Sparkles className="h-3 w-3" />
+                Belo Horizonte · MG
+              </div>
+            </div>
+
+            {/* Bottom overlay content — desktop only */}
+            <div className="absolute inset-x-0 bottom-0 z-10 hidden p-6 sm:block md:p-10">
+              <div className="grid items-end gap-6 md:grid-cols-12 md:gap-8">
+                <div className="md:col-span-7">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(232,200,122,0.3)] bg-[rgba(22,15,8,0.55)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[#e8c87a] backdrop-blur-sm">
+                    <Maximize2 className="h-3 w-3" />
+                    Espaço do evento
+                  </div>
+                  <p className="mt-4 text-2xl font-bold leading-tight text-[#f8f3ee] md:text-4xl">
+                    {PANIFAIR_ADDRESS.street}
+                  </p>
+                  <p className="mt-2 text-sm text-[#ddcfaa] md:text-base">
+                    Bairro {PANIFAIR_ADDRESS.neighborhood} · {PANIFAIR_ADDRESS.cityState} · CEP{" "}
+                    {PANIFAIR_ADDRESS.cep}
+                  </p>
+                </div>
+
+                <div className="md:col-span-5 md:justify-self-end">
+                  <Button
+                    asChild
+                    className="w-full bg-[#e8c87a] text-[#160f08] shadow-[0_10px_30px_rgba(232,200,122,0.35)] hover:bg-[#f0d287] sm:w-auto"
+                  >
+                    <Link href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+                      Abrir no Google Maps
+                      <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Solid panel content — mobile only */}
+            <div className="border-t border-[rgba(232,200,122,0.15)] bg-[#160f08] p-5 sm:hidden">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(232,200,122,0.3)] bg-[rgba(22,15,8,0.55)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[#e8c87a]">
+                <Maximize2 className="h-3 w-3" />
+                Espaço do evento
+              </div>
+              <p className="mt-3 text-xl font-bold leading-tight text-[#f8f3ee]">
+                {PANIFAIR_ADDRESS.street}
+              </p>
+              <p className="mt-1.5 text-sm leading-relaxed text-[#ddcfaa]">
+                Bairro {PANIFAIR_ADDRESS.neighborhood} · {PANIFAIR_ADDRESS.cityState}
+                <br />
+                CEP {PANIFAIR_ADDRESS.cep}
+              </p>
+              <Button
+                asChild
+                className="mt-4 w-full bg-[#e8c87a] text-[#160f08] shadow-[0_10px_30px_rgba(232,200,122,0.35)] hover:bg-[#f0d287]"
+              >
+                <Link href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+                  Abrir no Google Maps
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </Reveal>
 
-        <div className="space-y-8">
-          <Reveal delay={0.05}>
-            <div>
-              <h3 className="text-2xl font-bold leading-tight text-[#452816] md:text-3xl">
-                Centerminas Expo: palco do futuro da panificação
-              </h3>
-              <p className="mt-4 text-base leading-relaxed text-[#5c4d3e] md:text-lg">
-                Com 57 mil m², pé-direito de até 14 metros e acesso privilegiado a
-                aeroportos, metrô e rede hoteleira, o Centerminas Expo garante toda a
-                infraestrutura necessária para um evento de nível internacional.
+        {/* Two-column info + highlights */}
+        <div className="mt-10 grid gap-6 lg:grid-cols-12 lg:gap-8">
+          <Reveal className="lg:col-span-7" delay={0.05}>
+            <div className="glass-card h-full rounded-[1.75rem] border border-[rgba(122,85,50,0.2)] p-7 md:p-9">
+              <div className="flex items-start gap-4">
+                <div className="icon-badge flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#7a5532]">
+                    Endereço completo
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold leading-tight text-[#452816] md:text-[1.75rem]">
+                    Belo Horizonte, o novo centro da panificação
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-[#5c4d3e]">
+                    {PANIFAIR_ADDRESS.street}
+                    <br />
+                    Bairro {PANIFAIR_ADDRESS.neighborhood} · {PANIFAIR_ADDRESS.cityState}
+                    <br />
+                    CEP {PANIFAIR_ADDRESS.cep}
+                  </p>
+                </div>
+              </div>
+
+              <div className="my-7 h-px w-full bg-gradient-to-r from-transparent via-[rgba(122,85,50,0.25)] to-transparent" />
+
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#7a5532]">
+                Locomoção
               </p>
+              <div className="space-y-3">
+                {TRANSPORT.map(({ icon: Icon, time, title, description }) => (
+                  <div
+                    key={title}
+                    className="group/transport flex items-center gap-4 rounded-2xl border border-[rgba(122,85,50,0.16)] bg-[rgba(255,252,245,0.6)] p-4 transition-colors duration-300 hover:border-[rgba(122,85,50,0.35)]"
+                  >
+                    <div className="icon-badge flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover/transport:scale-110">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-bold text-[#452816]">{title}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-[#7a6b5c]">{description}</p>
+                    </div>
+                    <div className="flex shrink-0 flex-col items-center rounded-xl bg-[rgba(166,124,82,0.12)] px-3 py-1.5 text-center">
+                      <span className="text-base font-extrabold leading-none text-[#7a5532]">
+                        {time.split(" ")[0]}
+                      </span>
+                      <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-wider text-[#7a6b5c]">
+                        {time.split(" ")[1]}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            {VENUE_STATS.map((stat, i) => (
-              <Reveal key={stat.label} delay={0.1 + i * 0.08}>
-                <div className="glass-card rounded-xl p-5 text-center">
-                  <p className="text-2xl font-bold text-[#c4966a] md:text-3xl">
-                    <NumberTicker value={stat.value} suffix={stat.suffix} />
-                  </p>
-                  <p className="mt-2 text-xs leading-snug text-[#5c4d3e] md:text-sm">
-                    {stat.label}
-                  </p>
+          <Reveal className="lg:col-span-5" delay={0.1}>
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] border border-[rgba(122,85,50,0.25)] bg-gradient-to-br from-[#452816] via-[#5a3520] to-[#3a2010] p-7 text-[#f8f3ee] shadow-[0_20px_50px_rgba(69,40,22,0.25)] md:p-9">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[rgba(232,200,122,0.18)] blur-3xl"
+              />
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(232,200,122,0.3)] bg-[rgba(22,15,8,0.35)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[#e8c87a]">
+                  <Building2 className="h-3 w-3" />
+                  Infraestrutura
                 </div>
-              </Reveal>
-            ))}
-          </div>
+                <h3 className="mt-4 text-xl font-bold leading-tight md:text-2xl">
+                  Pavilhão preparado para receber a indústria em grande escala
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#ddcfaa]">
+                  Área ampla com pé-direito elevado, padaria modelo operacional e estrutura
+                  completa para expositores, palestras e networking de alto nível.
+                </p>
+              </div>
+
+              <div className="relative mt-8 grid grid-cols-3 gap-3">
+                {VENUE_STATS.map((stat, i) => (
+                  <div
+                    key={stat.label}
+                    className="flex flex-col items-center rounded-2xl border border-[rgba(232,200,122,0.2)] bg-[rgba(22,15,8,0.35)] p-4 text-center backdrop-blur-sm"
+                    style={{ animationDelay: `${i * 80}ms` }}
+                  >
+                    <p className="text-2xl font-extrabold leading-none text-[#e8c87a] md:text-[1.75rem]">
+                      <NumberTicker value={stat.value} />
+                    </p>
+                    <p className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#e8c87a]/80">
+                      {stat.suffix.trim()}
+                    </p>
+                    <p className="mt-2 text-[10px] font-semibold uppercase leading-tight tracking-wider text-[#ddcfaa]">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

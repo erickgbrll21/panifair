@@ -52,7 +52,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="relative text-sm font-medium text-[#a3733e] transition-colors duration-200 hover:text-[#c4966a] after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-[#a3733e] after:transition-all after:duration-300 hover:after:w-full"
+              className="relative text-sm font-medium text-[#7a5532] transition-colors duration-200 hover:text-[#452816] after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-[#7a5532] after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.label}
             </Link>
@@ -60,7 +60,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button variant="outline" size="sm" className="text-[#a3733e] hover:text-[#c4966a]" asChild>
+          <Button variant="outline" size="sm" className="text-[#7a5532] hover:text-[#452816]" asChild>
             <Link href={EDICAO_2026_LINK.href}>Panifair 2026</Link>
           </Button>
           <Button size="sm" asChild>
@@ -73,7 +73,7 @@ export function Header() {
 
         <button
           type="button"
-          className="relative z-10 ml-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[rgba(163,115,62,0.35)] text-[#a3733e] lg:hidden"
+          className="relative z-10 ml-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[rgba(122,85,50,0.4)] text-[#7a5532] lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={mobileOpen}
@@ -94,7 +94,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="rounded-xl px-4 py-3 text-lg font-medium text-[#a3733e] transition-colors hover:bg-[rgba(163,115,62,0.1)] hover:text-[#c4966a]"
+              className="rounded-xl px-4 py-3 text-lg font-medium text-[#7a5532] transition-colors hover:bg-[rgba(122,85,50,0.1)] hover:text-[#452816]"
             >
               {link.label}
             </Link>

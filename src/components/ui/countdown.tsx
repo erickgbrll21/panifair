@@ -1,49 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { EVENT_DATE } from "@/lib/constants";
 
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
-function calculateTimeLeft(): TimeLeft {
-  const difference = EVENT_DATE.getTime() - Date.now();
-
-  if (difference <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  }
-
-  return {
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((difference / 1000 / 60) % 60),
-    seconds: Math.floor((difference / 1000) % 60),
-  };
-}
-
 const UNITS = [
-  { key: "days" as const, label: "Dias" },
-  { key: "hours" as const, label: "Horas" },
-  { key: "minutes" as const, label: "Min" },
-  { key: "seconds" as const, label: "Seg" },
-];
+  { key: "days", label: "Dias" },
+  { key: "hours", label: "Horas" },
+  { key: "minutes", label: "Min" },
+  { key: "seconds", label: "Seg" },
+] as const;
 
-const PLACEHOLDER: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+function subscribe(onTick: () => void) {
+  const id = setInterval(onTick, 1000);
+  return () => clearInterval(id);
+}
+
+function getSecondsLeft() {
+  return Math.max(0, Math.floor((EVENT_DATE.getTime() - Date.now()) / 1000));
+}
+
+// No servidor não há relógio confiável do cliente; -1 renderiza os placeholders "--"
+function getServerSnapshot() {
+  return -1;
+}
 
 export function Countdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(PLACEHOLDER);
-  const [mounted, setMounted] = useState(false);
+  const secondsLeft = useSyncExternalStore(subscribe, getSecondsLeft, getServerSnapshot);
 
-  useEffect(() => {
-    setMounted(true);
-    setTimeLeft(calculateTimeLeft());
-    const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000);
-    return () => clearInterval(timer);
-  }, []);
+  const timeLeft =
+    secondsLeft < 0
+      ? null
+      : {
+          days: Math.floor(secondsLeft / 86400),
+          hours: Math.floor(secondsLeft / 3600) % 24,
+          minutes: Math.floor(secondsLeft / 60) % 60,
+          seconds: secondsLeft % 60,
+        };
 
   return (
     <div className="flex flex-wrap gap-3 md:gap-4">
@@ -52,13 +44,10 @@ export function Countdown() {
           key={key}
           className="glass-card flex min-w-[72px] flex-col items-center rounded-2xl px-4 py-3 md:min-w-[88px] md:px-5 md:py-4"
         >
-          <span
-            className="text-2xl font-bold tabular-nums text-[#c4966a] md:text-3xl"
-            suppressHydrationWarning
-          >
-            {mounted ? String(timeLeft[key]).padStart(2, "0") : "--"}
+          <span className="text-2xl font-bold tabular-nums text-[#7a5532] md:text-3xl">
+            {timeLeft ? String(timeLeft[key]).padStart(2, "0") : "--"}
           </span>
-          <span className="mt-1 text-[10px] font-medium uppercase tracking-widest text-[#9a8b7a] md:text-xs">
+          <span className="mt-1 text-[10px] font-medium uppercase tracking-widest text-[#5c4d3e] md:text-xs">
             {label}
           </span>
         </div>
