@@ -45,3 +45,5 @@ next-env.d.ts
 *.MP4
 *.mov
 *.MOV
+# except the site video used by the Local section
+!public/panifair-local.mp4
