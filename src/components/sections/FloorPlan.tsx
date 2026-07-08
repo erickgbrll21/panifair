@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { FloorPlanZoom } from "@/components/sections/FloorPlanZoom";
 
 const LEGEND = [
@@ -14,6 +15,7 @@ const LEGEND = [
 export function FloorPlan() {
   return (
     <section id="planta" className="section-cream section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={5} />
       <SectionSideDecor />
       <SectionHeading
         eyebrow="Layout estratégico"

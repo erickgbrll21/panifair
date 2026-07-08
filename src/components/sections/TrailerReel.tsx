@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Play } from "lucide-react";
 import { Marquee } from "@/components/magicui/marquee";
 import { Reveal } from "@/components/ui/reveal";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 
 const TRAILER_SRC = "/trailer-panifair.mp4";
 
@@ -23,6 +24,7 @@ export function TrailerReel() {
       id="trailer"
       className="relative scroll-mt-24 overflow-hidden bg-[#160b04] text-[#f5ead8]"
     >
+      <SectionBackgroundCharacters seed={0} />
       {/* atmosfera: brilhos bronze */}
       <div
         aria-hidden

@@ -13,6 +13,7 @@ import {
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { Button } from "@/components/ui/button";
 import { PANIFAIR_ADDRESS, VENUE_STATS } from "@/lib/constants";
@@ -37,6 +38,7 @@ const TRANSPORT = [
 export function Location() {
   return (
     <section id="local" className="section-warm-mid section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={9} />
       <SectionSideDecor />
 
       <SectionHeading

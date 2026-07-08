@@ -1,10 +1,12 @@
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { BOOTH_TYPES } from "@/lib/constants";
 
 export function BoothTypes() {
   return (
-    <section id="estandes" className="section-cream section-padding overflow-hidden">
+    <section id="estandes" className="section-cream section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={6} />
       <SectionHeading title="Tipos de Estandes" align="center" className="max-w-none" />
 
       <div className="container-panifair">

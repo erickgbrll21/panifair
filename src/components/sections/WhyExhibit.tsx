@@ -12,6 +12,7 @@ import { MagicCard } from "@/components/magicui/magic-card";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { Button } from "@/components/ui/button";
 import { WHY_EXHIBIT } from "@/lib/constants";
 import Link from "next/link";
@@ -28,6 +29,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 export function WhyExhibit() {
   return (
     <section id="por-que-expor" className="section-cream section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={1} />
       <SectionSideDecor />
       <SectionHeading
         eyebrow="Oportunidade estratégica"

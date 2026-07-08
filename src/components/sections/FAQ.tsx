@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import {
   Accordion,
   AccordionContent,
@@ -12,6 +13,7 @@ import { FAQ_ITEMS } from "@/lib/constants";
 export function FAQ() {
   return (
     <section id="faq" className="section-cream section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={10} />
       <SectionSideDecor />
       <SectionHeading
         eyebrow="Tire suas dúvidas"

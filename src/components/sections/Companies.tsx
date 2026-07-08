@@ -1,11 +1,13 @@
 import { LogoLoop } from "@/components/LogoLoop";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { APOIADORES } from "@/lib/constants";
 
 export function Companies() {
   return (
-    <section id="apoiadores" className="section-dark section-padding overflow-hidden">
+    <section id="apoiadores" className="section-dark section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={8} />
       <SectionHeading
         eyebrow="Parcerias estratégicas"
         title="Apoiadores"

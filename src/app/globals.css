@@ -221,56 +221,24 @@ body {
 .hero {
   --hero-bg: #ddcfaa;
   background: var(--hero-bg);
-}
-
-@media (min-width: 768px) {
-  .hero {
-    min-height: 100dvh;
-  }
+  color: var(--color-on-cream);
 }
 
 @layer components {
-  .section-hero-intro {
-    background-color: #ddcfaa;
-    color: var(--color-on-cream);
-    padding-top: 0 !important;
-  }
-
-  .hero + .section-hero-intro {
-    padding-top: 0 !important;
-    margin-top: -12rem !important;
-  }
-
-  @media (min-width: 640px) {
-    .hero + .section-hero-intro {
-      margin-top: -16rem !important;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .hero + .section-hero-intro {
-      margin-top: -24rem !important;
-    }
-  }
-
-  .hero + .section-hero-intro.section-warm::before {
-    display: none !important;
-  }
-
-  .section-hero-intro .fg-primary {
+  .hero .fg-primary {
     color: var(--color-on-cream);
   }
 
-  .section-hero-intro .fg-muted {
+  .hero .fg-muted {
     color: var(--color-on-cream-muted);
   }
 
-  .section-hero-intro .glass-card {
+  .hero .glass-card {
     background: rgba(255, 252, 245, 0.72);
     border: 1px solid rgba(122, 85, 50, 0.18);
   }
 
-  .section-hero-intro .glass-card:hover {
+  .hero .glass-card:hover {
     border-color: rgba(122, 85, 50, 0.35);
     box-shadow: 0 8px 28px rgba(122, 85, 50, 0.12);
     transform: translateY(-2px);
@@ -596,9 +564,9 @@ body {
   background: linear-gradient(90deg, transparent, rgba(122, 85, 50, 0.2), transparent);
 }
 
-.section-warm > *:not(.section-side-decor),
-.section-warm-mid > *:not(.section-side-decor),
-.section-cream > *:not(.section-side-decor) {
+.section-warm > *:not(.section-side-decor):not(.section-background-decor),
+.section-warm-mid > *:not(.section-side-decor):not(.section-background-decor),
+.section-cream > *:not(.section-side-decor):not(.section-background-decor) {
   position: relative;
   z-index: 1;
 }
@@ -779,7 +747,7 @@ body {
   bottom: 0;
 }
 
-.section-dark > *:not(.section-side-decor) {
+.section-dark > *:not(.section-side-decor):not(.section-background-decor) {
   position: relative;
   z-index: 1;
 }

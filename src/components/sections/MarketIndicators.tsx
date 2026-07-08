@@ -2,6 +2,7 @@ import { NumberTicker } from "@/components/magicui/number-ticker";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { MARKET_INDICATORS } from "@/lib/constants";
 import { TrendingUp } from "lucide-react";
@@ -9,6 +10,7 @@ import { TrendingUp } from "lucide-react";
 export function MarketIndicators() {
   return (
     <section id="mercado" className="section-cream section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={3} />
       <SectionSideDecor />
       <DotPattern className="opacity-20" />
 

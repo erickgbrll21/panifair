@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { VISITOR_PROFILES } from "@/lib/constants";
 
 const PROFILE_ICONS = [
@@ -34,6 +35,7 @@ const PROFILE_ICONS = [
 export function Visitors() {
   return (
     <section id="visitantes" className="section-dark section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={2} />
       <SectionHeading
         eyebrow="Público qualificado"
         title="Quem visita a feira?"

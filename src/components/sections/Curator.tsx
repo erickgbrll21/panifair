@@ -1,21 +1,24 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { CuratorPillars } from "@/components/sections/CuratorPillars";
 
 export function Curator() {
   return (
-    <div className="mt-12 grid items-center gap-12 md:mt-16 lg:grid-cols-12 lg:gap-16">
-        <Reveal delay={0.1} className="order-2 lg:order-1 lg:col-span-5">
-          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+    <div className="mt-12 grid items-start gap-12 md:mt-16 lg:grid-cols-12 lg:items-stretch lg:gap-10 xl:gap-14">
+      {/* Retrato */}
+      <Reveal delay={0.1} className="order-2 lg:order-1 lg:col-span-5 lg:flex lg:h-full lg:min-h-0">
+        <div className="relative mx-auto w-full max-w-md pb-10 sm:max-w-lg lg:mx-0 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:pb-12">
+          <div className="relative min-h-[22rem] flex-1 overflow-visible pt-2.5 pl-2.5 sm:min-h-[26rem] lg:flex lg:min-h-0 lg:flex-col">
             <div
               aria-hidden
-              className="pointer-events-none absolute -right-4 top-2 z-0 h-[calc(100%-1.5rem)] w-[calc(100%-1.5rem)] rounded-[1.75rem] border border-[rgba(176,132,80,0.35)] md:top-3"
+              className="pointer-events-none absolute top-0 left-0 z-0 h-[calc(100%-0.625rem)] w-[calc(100%-0.625rem)] rounded-[1.75rem] border border-[rgba(176,132,80,0.3)]"
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute -bottom-3 -left-3 z-0 h-24 w-24 rounded-br-[2rem] border-b-2 border-l-2 border-[#b08450]"
+              className="pointer-events-none absolute bottom-0 left-2.5 z-[5] h-24 w-24 rounded-bl-[2rem] border-b-2 border-l-2 border-[#b08450]"
             />
 
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem]">
+            <div className="relative z-10 h-full min-h-[22rem] flex-1 overflow-hidden rounded-[1.75rem] border border-[rgba(176,132,80,0.35)] sm:min-h-[26rem] lg:min-h-0">
               <div
                 aria-hidden
                 className="curator-portrait-glow pointer-events-none absolute -inset-x-[8%] bottom-[-2%] top-[6%] z-0 opacity-40"
@@ -26,51 +29,61 @@ export function Curator() {
                 width={800}
                 height={1000}
                 className="relative z-10 h-full w-full object-cover object-[center_8%]"
-                sizes="(max-width: 1024px) 85vw, 38vw"
+                sizes="(max-width: 1024px) 90vw, 38vw"
               />
             </div>
-
-            <div className="glass-card absolute -bottom-5 left-6 right-6 z-20 rounded-2xl px-6 py-5 shadow-[0_16px_48px_rgba(69,40,22,0.18)] md:left-8 md:right-auto md:min-w-[16rem]">
-              <p className="fg-primary text-xl font-extrabold tracking-tight">
-                Júnior Maffille
-              </p>
-              <p className="mt-1.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#7a5532] md:text-[11px]">
-                <span className="pulse-glow-bronze h-1.5 w-1.5 shrink-0 rounded-full bg-[#b08450]" />
-                Idealizador e Curador · PANIFAIR
-              </p>
-            </div>
           </div>
+
+          <div className="glass-card absolute bottom-0 left-1/2 z-20 w-[calc(100%-2.5rem)] -translate-x-1/2 rounded-2xl px-6 py-5 text-center shadow-[0_16px_48px_rgba(69,40,22,0.18)]">
+            <p className="fg-primary text-xl font-extrabold tracking-tight">
+              Júnior Maffille
+            </p>
+            <p className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#7a5532] md:text-[11px]">
+              Idealizador e Curador
+            </p>
+            <p className="mt-1 flex items-center justify-center gap-2 text-[9px] font-bold uppercase tracking-[0.3em] text-[#b08450]">
+              <span className="h-px w-4 bg-[rgba(176,132,80,0.5)]" />
+              Panifair
+              <span className="h-px w-4 bg-[rgba(176,132,80,0.5)]" />
+            </p>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Conteúdo */}
+      <div className="order-1 lg:order-2 lg:col-span-7">
+        <Reveal delay={0.05}>
+          <div className="mb-3 flex items-center gap-3">
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-[rgba(122,85,50,0.28)] bg-[rgba(176,132,80,0.1)] px-5 py-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#7a5532] md:text-[11px]">
+              Quem está por trás
+              <span className="h-1 w-1 rotate-45 bg-[#b08450]" />
+            </span>
+          </div>
+          <h3 className="text-gradient-bronze text-4xl font-extrabold uppercase tracking-[0.04em] md:text-5xl lg:text-[3.4rem] lg:leading-none">
+            da Panifair
+          </h3>
         </Reveal>
 
-        <div className="order-1 lg:order-2 lg:col-span-7">
-          <Reveal delay={0.05}>
-            <div className="space-y-4">
-              <p className="fg-muted text-base leading-relaxed md:text-lg">
-                Criado na zona rural de Viçosa, em Minas Gerais, Júnior Maffille
-                iniciou sua trajetória no empreendedorismo ainda muito jovem, aos
-                10 anos. Desde então, construiu uma história marcada pelo
-                trabalho, pela perseverança e pela capacidade de transformar
-                desafios em oportunidades.
-              </p>
-              <p className="fg-muted text-base leading-relaxed md:text-lg">
-                Com mais de 26 anos de experiência no setor de panificação,
-                Júnior consolidou-se como uma das principais referências do
-                segmento. Atualmente, comanda uma rede de padarias, restaurantes
-                e empresas correlatas, além de atuar como mentor e assessor
-                estratégico de mais de 56 CNPJs. Sob sua liderança, esses
-                negócios empregam cerca de 1.300 colaboradores e movimentam,
-                anualmente, dezenas de milhões de reais.
-              </p>
-              <p className="fg-muted text-base leading-relaxed md:text-lg">
-                Sua atuação vai além da gestão empresarial. Júnior Maffille
-                acredita no empreendedorismo como ferramenta de transformação
-                social, geração de empregos e construção de legado. Sua visão une
-                fé, disciplina, conhecimento prático e profundo respeito pelas
-                pessoas que constroem o negócio diariamente.
-              </p>
-            </div>
-          </Reveal>
-        </div>
+        <CuratorPillars />
+
+        <Reveal delay={0.3}>
+          <div className="mt-10 border-t border-[rgba(176,132,80,0.25)] pt-7 md:mt-12">
+            <p
+              className="text-3xl text-[#a67c52] md:text-4xl"
+              style={{
+                fontFamily:
+                  '"Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive',
+              }}
+            >
+              Júnior Maffille
+            </p>
+            <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#5c4d3e]">
+              Idealizador e Curador
+              <span className="ml-2 text-[#b08450]">· Panifair</span>
+            </p>
+          </div>
+        </Reveal>
+      </div>
     </div>
   );
 }

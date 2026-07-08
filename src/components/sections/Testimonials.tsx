@@ -2,11 +2,13 @@ import { Quote } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { TESTIMONIALS } from "@/lib/constants";
 
 export function Testimonials() {
   return (
     <section id="depoimentos" className="section-cream section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={7} />
       <SectionSideDecor />
       <SectionHeading
         eyebrow="Prova social"

@@ -4,12 +4,14 @@ import { Check, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
+import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
 import { Button } from "@/components/ui/button";
 import { BENEFITS } from "@/lib/constants";
 
 export function Benefits() {
   return (
     <section id="beneficios" className="section-cream section-padding relative overflow-hidden">
+      <SectionBackgroundCharacters seed={4} />
       <SectionSideDecor />
       <div className="container-panifair relative z-10">
         <SectionHeading

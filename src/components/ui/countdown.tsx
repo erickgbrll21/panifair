@@ -38,16 +38,16 @@ export function Countdown() {
         };
 
   return (
-    <div className="flex flex-wrap gap-3 md:gap-4">
+    <div className="flex flex-wrap justify-center gap-2 md:gap-4">
       {UNITS.map(({ key, label }) => (
         <div
           key={key}
-          className="glass-card flex min-w-[72px] flex-col items-center rounded-2xl px-4 py-3 md:min-w-[88px] md:px-5 md:py-4"
+          className="glass-card flex min-w-[58px] flex-col items-center rounded-xl px-2.5 py-2 md:min-w-[88px] md:rounded-2xl md:px-5 md:py-4"
         >
-          <span className="text-2xl font-bold tabular-nums text-[#7a5532] md:text-3xl">
+          <span className="text-lg font-bold tabular-nums text-[#7a5532] md:text-3xl">
             {timeLeft ? String(timeLeft[key]).padStart(2, "0") : "--"}
           </span>
-          <span className="mt-1 text-[10px] font-medium uppercase tracking-widest text-[#5c4d3e] md:text-xs">
+          <span className="mt-0.5 text-[9px] font-medium uppercase tracking-widest text-[#5c4d3e] md:mt-1 md:text-xs">
             {label}
           </span>
         </div>
