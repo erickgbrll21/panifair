@@ -51,6 +51,25 @@ function ZoomControls({
   );
 }
 
+function clampPosition(
+  pos: { x: number; y: number },
+  scale: number,
+  viewport: HTMLDivElement,
+  content: HTMLDivElement,
+) {
+  const viewportW = viewport.clientWidth;
+  const viewportH = viewport.clientHeight;
+  const contentW = content.offsetWidth * scale;
+  const contentH = content.offsetHeight * scale;
+  const maxX = Math.max(0, (contentW - viewportW) / 2);
+  const maxY = Math.max(0, (contentH - viewportH) / 2);
+
+  return {
+    x: Math.min(maxX, Math.max(-maxX, pos.x)),
+    y: Math.min(maxY, Math.max(-maxY, pos.y)),
+  };
+}
+
 function FloorPlanViewer({
   fullscreen = false,
   onClose,
@@ -59,10 +78,35 @@ function FloorPlanViewer({
   onClose?: () => void;
 }) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [canPan, setCanPan] = useState(false);
+  const [isCoarsePointer, setIsCoarsePointer] = useState(false);
   const dragStart = useRef({ x: 0, y: 0, posX: 0, posY: 0 });
+
+  const measurePan = useCallback(() => {
+    const viewport = viewportRef.current;
+    const content = contentRef.current;
+    if (!viewport || !content) return;
+
+    const overflows =
+      content.offsetWidth > viewport.clientWidth + 1 ||
+      content.offsetHeight > viewport.clientHeight + 1;
+
+    setCanPan(overflows || scale > 1);
+  }, [scale]);
+
+  const applyClampedPosition = useCallback(
+    (pos: { x: number; y: number }, nextScale = scale) => {
+      const viewport = viewportRef.current;
+      const content = contentRef.current;
+      if (!viewport || !content) return pos;
+      return clampPosition(pos, nextScale, viewport, content);
+    },
+    [scale],
+  );
 
   const resetView = useCallback(() => {
     setScale(1);
@@ -76,10 +120,10 @@ function FloorPlanViewer({
   const zoomOut = useCallback(() => {
     setScale((current) => {
       const next = clampScale(current - STEP);
-      if (next === 1) setPosition({ x: 0, y: 0 });
+      setPosition((pos) => applyClampedPosition(pos, next));
       return next;
     });
-  }, []);
+  }, [applyClampedPosition]);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -90,14 +134,38 @@ function FloorPlanViewer({
       const delta = event.deltaY > 0 ? -STEP : STEP;
       setScale((current) => {
         const next = clampScale(current + delta);
-        if (next === 1) setPosition({ x: 0, y: 0 });
+        setPosition((pos) => applyClampedPosition(pos, next));
         return next;
       });
     };
 
     viewport.addEventListener("wheel", onWheel, { passive: false });
     return () => viewport.removeEventListener("wheel", onWheel);
+  }, [applyClampedPosition]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(pointer: coarse)");
+    const updatePointerType = () => setIsCoarsePointer(media.matches);
+    updatePointerType();
+    media.addEventListener("change", updatePointerType);
+    return () => media.removeEventListener("change", updatePointerType);
   }, []);
+
+  useEffect(() => {
+    measurePan();
+    const viewport = viewportRef.current;
+    const content = contentRef.current;
+    if (!viewport || !content) return;
+
+    const observer = new ResizeObserver(measurePan);
+    observer.observe(viewport);
+    observer.observe(content);
+    return () => observer.disconnect();
+  }, [measurePan]);
+
+  useEffect(() => {
+    setPosition((pos) => applyClampedPosition(pos, scale));
+  }, [scale, applyClampedPosition]);
 
   useEffect(() => {
     if (!fullscreen) return;
@@ -108,8 +176,10 @@ function FloorPlanViewer({
     };
   }, [fullscreen]);
 
+  const allowPan = canPan;
+
   const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (scale <= 1) return;
+    if (!allowPan) return;
     setIsDragging(true);
     dragStart.current = {
       x: event.clientX,
@@ -122,10 +192,12 @@ function FloorPlanViewer({
 
   const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging) return;
-    setPosition({
-      x: dragStart.current.posX + (event.clientX - dragStart.current.x),
-      y: dragStart.current.posY + (event.clientY - dragStart.current.y),
-    });
+    setPosition(
+      applyClampedPosition({
+        x: dragStart.current.posX + (event.clientX - dragStart.current.x),
+        y: dragStart.current.posY + (event.clientY - dragStart.current.y),
+      }),
+    );
   };
 
   const onPointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -134,13 +206,14 @@ function FloorPlanViewer({
   };
 
   const zoomLabel = `${Math.round(scale * 100)}%`;
+  const panHint = isCoarsePointer
+    ? "Arraste com o dedo ou use os botões para explorar a planta."
+    : "Use a roda do mouse, os botões ou arraste para explorar a planta.";
 
   return (
     <>
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-        <p className={`text-xs ${fullscreen ? "text-white/70" : "text-[#7a5532]"}`}>
-          Use a roda do mouse, os botões ou arraste para explorar a planta.
-        </p>
+        <p className={`text-xs ${fullscreen ? "text-white/70" : "text-[#7a5532]"}`}>{panHint}</p>
         <div className="flex items-center gap-3">
           <span
             className={`text-xs font-semibold tabular-nums ${
@@ -168,7 +241,7 @@ function FloorPlanViewer({
         className={`relative overflow-hidden rounded-xl bg-white ring-1 ring-[rgba(122,85,50,0.15)] ${
           fullscreen ? "h-[calc(100dvh-8rem)]" : "h-[min(70vh,720px)]"
         }`}
-        style={{ touchAction: scale > 1 ? "none" : "pan-y" }}
+        style={{ touchAction: allowPan ? "none" : "pan-y" }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -176,10 +249,11 @@ function FloorPlanViewer({
       >
         <div
           className={`flex h-full w-full items-center justify-center ${
-            scale > 1 ? (isDragging ? "cursor-grabbing" : "cursor-grab") : "cursor-default"
+            allowPan ? (isDragging ? "cursor-grabbing" : "cursor-grab") : "cursor-default"
           }`}
         >
           <div
+            ref={contentRef}
             style={{
               transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
               transformOrigin: "center center",

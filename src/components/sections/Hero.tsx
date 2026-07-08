@@ -24,15 +24,15 @@ const Countdown = dynamic(
 
 export function Hero() {
   return (
-    <section className="hero relative flex min-h-[100dvh] flex-col items-center justify-end overflow-x-hidden pb-0 pt-24 md:pt-28">
+    <section className="hero relative flex min-h-0 flex-col items-center justify-start overflow-x-hidden px-6 pb-8 pt-[calc(4.5rem+env(safe-area-inset-top,0px)+1.25rem)] md:min-h-[100dvh] md:justify-end md:px-0 md:pb-0 md:pt-28">
       <div aria-hidden className="hero__effects pointer-events-none absolute inset-0 z-[1] overflow-hidden">
         <DotPattern className="z-0 opacity-[0.12]" />
 
         <LightRays count={6} blur={32} length="88vh" />
       </div>
 
-      <div className="relative z-[2] mb-8 flex w-full -translate-y-4 flex-col items-center px-6 md:mb-12 md:-translate-y-6">
-        <div className="aspect-square w-full max-w-[min(74vw,520px)] md:max-w-[min(56vw,560px)]">
+      <div className="relative z-[2] flex w-full flex-col items-center md:mb-12 md:-translate-y-6">
+        <div className="aspect-square w-full max-w-[min(68vw,320px)] sm:max-w-[min(74vw,420px)] md:max-w-[min(56vw,560px)]">
           <Image
             src="/hero-logo.png"
             alt="Panifair — Feira Internacional da Panificação"
@@ -44,7 +44,7 @@ export function Hero() {
           />
         </div>
 
-        <div className="-mt-12 w-full max-w-xl text-center md:-mt-16">
+        <div className="-mt-10 w-full max-w-xl text-center sm:-mt-12 md:-mt-16">
           <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#5c4d3e]">
             Contagem regressiva para o evento
           </p>

@@ -220,8 +220,13 @@ body {
 
 .hero {
   --hero-bg: #ddcfaa;
-  min-height: 100dvh;
   background: var(--hero-bg);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 100dvh;
+  }
 }
 
 @layer components {
@@ -233,7 +238,13 @@ body {
 
   .hero + .section-hero-intro {
     padding-top: 0 !important;
-    margin-top: -26rem !important;
+    margin-top: -12rem !important;
+  }
+
+  @media (min-width: 640px) {
+    .hero + .section-hero-intro {
+      margin-top: -16rem !important;
+    }
   }
 
   @media (min-width: 768px) {
