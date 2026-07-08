@@ -98,13 +98,6 @@ export function Location() {
                     <Maximize2 className="h-3 w-3" />
                     Espaço do evento
                   </div>
-                  <p className="mt-4 text-2xl font-bold leading-tight text-[#f8f3ee] md:text-4xl">
-                    {PANIFAIR_ADDRESS.street}
-                  </p>
-                  <p className="mt-2 text-sm text-[#ddcfaa] md:text-base">
-                    Bairro {PANIFAIR_ADDRESS.neighborhood} · {PANIFAIR_ADDRESS.cityState} · CEP{" "}
-                    {PANIFAIR_ADDRESS.cep}
-                  </p>
                 </div>
 
                 <div className="md:col-span-5 md:justify-self-end">
@@ -127,14 +120,6 @@ export function Location() {
                 <Maximize2 className="h-3 w-3" />
                 Espaço do evento
               </div>
-              <p className="mt-3 text-xl font-bold leading-tight text-[#f8f3ee]">
-                {PANIFAIR_ADDRESS.street}
-              </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-[#ddcfaa]">
-                Bairro {PANIFAIR_ADDRESS.neighborhood} · {PANIFAIR_ADDRESS.cityState}
-                <br />
-                CEP {PANIFAIR_ADDRESS.cep}
-              </p>
               <Button
                 asChild
                 className="mt-4 w-full bg-[#e8c87a] text-[#160f08] shadow-[0_10px_30px_rgba(232,200,122,0.35)] hover:bg-[#f0d287]"

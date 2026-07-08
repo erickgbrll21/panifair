@@ -47,3 +47,4 @@ next-env.d.ts
 *.MOV
 # except the site video used by the Local section
 !public/panifair-local.mp4
+!public/trailer-panifair.mp4

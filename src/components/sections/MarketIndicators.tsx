@@ -18,10 +18,10 @@ export function MarketIndicators() {
         description="O setor de panificação brasileiro cresce consistentemente. Posicione sua empresa onde o mercado está."
       />
 
-      <div className="container-panifair grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container-panifair grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
         {MARKET_INDICATORS.map((item, i) => (
-          <Reveal key={item.label} delay={i * 0.1}>
-            <div className="glass-card relative overflow-hidden rounded-2xl p-7">
+          <Reveal key={item.label} delay={i * 0.1} className="h-full">
+            <div className="glass-card relative flex h-full min-h-[11.5rem] flex-col overflow-hidden rounded-2xl p-7">
               <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-[rgba(166,124,82,0.08)] blur-2xl" />
               <p className="fg-accent text-3xl font-bold md:text-4xl">
                 <NumberTicker
@@ -31,7 +31,7 @@ export function MarketIndicators() {
                   decimalPlaces={"decimal" in item ? item.decimal : 0}
                 />
               </p>
-              <p className="fg-muted mt-3 text-sm leading-relaxed">{item.label}</p>
+              <p className="fg-muted mt-3 flex-1 text-sm leading-relaxed">{item.label}</p>
               <div className="fg-bronze mt-4 flex items-center gap-1.5 text-xs font-medium">
                 <TrendingUp className="h-3.5 w-3.5" aria-hidden="true" />
                 {item.growth}

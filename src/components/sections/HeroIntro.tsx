@@ -1,6 +1,4 @@
-import Link from "next/link";
-import { ArrowRight, FileText } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import { ShimmerLink } from "@/components/magicui/shimmer-button";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { DotPattern } from "@/components/magicui/dot-pattern";
@@ -51,18 +49,6 @@ export function HeroIntro() {
               Reservar meu estande
               <ArrowRight className="h-4 w-4" />
             </ShimmerLink>
-
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-[rgba(122,85,50,0.35)] text-[#160f08] hover:border-[rgba(122,85,50,0.55)] hover:bg-[rgba(176,132,80,0.12)] hover:text-[#160f08]"
-              asChild
-            >
-              <Link href="/contato">
-                <FileText className="h-4 w-4" />
-                Solicitar proposta
-              </Link>
-            </Button>
           </div>
         </Reveal>
 

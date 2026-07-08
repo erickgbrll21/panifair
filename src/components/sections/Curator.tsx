@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/reveal";
 
 export function Curator() {
   return (
-    <div className="mt-0 grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+    <div className="mt-12 grid items-center gap-12 md:mt-16 lg:grid-cols-12 lg:gap-16">
         <Reveal delay={0.1} className="order-2 lg:order-1 lg:col-span-5">
           <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
             <div
@@ -25,7 +25,7 @@ export function Curator() {
                 alt="Júnior Maffille — Idealizador e Curador da PANIFAIR"
                 width={800}
                 height={1000}
-                className="relative z-10 h-full w-full object-cover object-[center_20%]"
+                className="relative z-10 h-full w-full object-cover object-[center_8%]"
                 sizes="(max-width: 1024px) 85vw, 38vw"
               />
             </div>

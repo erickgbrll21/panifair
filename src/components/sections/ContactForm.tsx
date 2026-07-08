@@ -39,7 +39,7 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card rounded-3xl p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-6 md:p-8">
       <div className="grid gap-5 md:grid-cols-2">
         <div>
           <label htmlFor="contact-name" className={labelClassName}>

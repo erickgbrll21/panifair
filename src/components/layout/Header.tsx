@@ -38,10 +38,10 @@ export function Header() {
       <div className="container-panifair flex h-[4.25rem] items-center justify-between gap-3 sm:h-16">
         <Link href="/" className="relative z-10 shrink-0">
           <Image
-            src="/logo.svg"
+            src="/panifair-header-logo.svg"
             alt="PANIFAIR — Feira Internacional da Panificação"
-            width={549}
-            height={203}
+            width={300}
+            height={75}
             className="h-10 w-auto md:h-11 lg:h-12"
             priority
           />

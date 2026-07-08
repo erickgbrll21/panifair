@@ -178,42 +178,28 @@ export const BENEFITS = [
 
 export const BOOTH_TYPES = [
   {
-    name: "Estande Standard",
-    size: "9m² a 18m²",
-    features: [
-      "Piso carpete cinza",
-      "Parede divisória branca",
-      "Identificação com fachada",
-      "1 ponto de energia",
-      "Listagem no catálogo oficial",
+    name: "ESPAÇO LARANJA",
+    color: "#f39100",
+    inclusions: [
+      "Montagem completa com acabamento premium Panifair",
+      "Participação e exposição na Padaria Modelo",
+      "Inserção de equipamentos/produtos na Padaria Modelo sem necessidade de doação",
     ],
-    highlight: false,
   },
   {
-    name: "Estande Premium",
-    size: "24m² a 48m²",
-    features: [
-      "Montagem personalizada",
-      "Mobiliário executivo",
-      "Wi-Fi dedicado",
-      "Destaque no app oficial",
-      "5 convites VIP",
-      "Assessoria comercial",
-    ],
-    highlight: true,
+    name: "ESPAÇO AMARELO",
+    color: "#e8b800",
+    inclusions: ["Área de exposição conforme localização indicada no mapa oficial da feira"],
   },
   {
-    name: "Estande Ilha",
-    size: "54m² a 200m²",
-    features: [
-      "Projeto arquitetônico exclusivo",
-      "Visibilidade 360°",
-      "Palco para demonstrações",
-      "Sala de reuniões privativa",
-      "Branding em todo o evento",
-      "Pacote de mídia ampliado",
-    ],
-    highlight: false,
+    name: "ESPAÇO VERDE",
+    color: "#1f9d4d",
+    inclusions: ["Área de exposição conforme localização indicada no mapa oficial da feira"],
+  },
+  {
+    name: "ESPAÇO CINZA",
+    color: "#b8b8b8",
+    inclusions: ["Área de exposição conforme localização indicada no mapa oficial da feira"],
   },
 ] as const;
 
