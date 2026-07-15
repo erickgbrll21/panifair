@@ -265,25 +265,25 @@ body {
 
 .hero-light-rays__ambient--left {
   background: radial-gradient(
-    circle at 20% 12%,
-    rgba(232, 200, 122, 0.22) 0%,
-    rgba(176, 132, 80, 0.08) 40%,
-    transparent 72%
+    circle at 18% 8%,
+    rgba(232, 200, 122, 0.28) 0%,
+    rgba(176, 132, 80, 0.12) 38%,
+    transparent 78%
   );
 }
 
 .hero-light-rays__ambient--right {
   background: radial-gradient(
-    circle at 82% 8%,
-    rgba(212, 168, 112, 0.18) 0%,
-    rgba(176, 132, 80, 0.06) 42%,
-    transparent 74%
+    circle at 84% 4%,
+    rgba(212, 168, 112, 0.24) 0%,
+    rgba(176, 132, 80, 0.1) 40%,
+    transparent 80%
   );
 }
 
 .hero-light-rays__ray {
   position: absolute;
-  top: -8%;
+  top: -14%;
   left: var(--ray-left);
   width: var(--ray-width);
   height: var(--light-rays-length);
@@ -294,8 +294,8 @@ body {
     to bottom,
     rgba(232, 200, 122, 0.55) 0%,
     rgba(232, 200, 122, 0.28) 22%,
-    rgba(176, 132, 80, 0.1) 48%,
-    transparent 72%
+    rgba(176, 132, 80, 0.1) 52%,
+    transparent 78%
   );
   filter: blur(var(--light-rays-blur));
   mix-blend-mode: multiply;

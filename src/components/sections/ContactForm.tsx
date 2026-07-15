@@ -101,7 +101,7 @@ export function ContactForm() {
             value={form.phone}
             onChange={(event) => updateField("phone", event.target.value)}
             className={fieldClassName}
-            placeholder="(11) 99999-9999"
+            placeholder="(31) 99175-3330"
           />
         </div>
       </div>

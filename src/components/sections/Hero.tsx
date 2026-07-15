@@ -40,12 +40,12 @@ export function Hero() {
       <div aria-hidden className="hero__effects pointer-events-none absolute inset-0 z-[1] overflow-hidden">
         <SectionBackgroundCharacters variant="hero" />
         <DotPattern className="z-0 opacity-[0.12]" />
-        <LightRays count={6} blur={32} length="88vh" />
+        <LightRays count={8} blur={40} length="130vh" />
       </div>
 
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 top-1/3 z-[1] h-[520px] w-[520px] rounded-full bg-[rgba(176,132,80,0.1)] blur-[100px]"
+        className="pointer-events-none absolute -right-40 top-1/4 z-[1] h-[680px] w-[680px] rounded-full bg-[rgba(176,132,80,0.14)] blur-[120px]"
       />
 
       <div className="relative z-[2] flex w-full flex-col items-center px-6">

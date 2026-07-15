@@ -12,7 +12,7 @@ export function Edicao2026Stats() {
       <SectionHeading
         eyebrow="Resultados oficiais"
         title="Números da edição 2026"
-        description="Indicadores consolidados ao final dos quatro dias de feira — a base que impulsiona a PANIFAIR 2027."
+        description="Indicadores consolidados ao final dos três dias de feira — a base que impulsiona a PANIFAIR 2027."
       />
 
       <div className="container-panifair grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

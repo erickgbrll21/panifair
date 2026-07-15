@@ -8,7 +8,7 @@ export function Edicao2026Timeline() {
       <SectionHeading
         eyebrow="Cronograma"
         title="Dia a dia da feira"
-        description="A programação que movimentou quatro dias intensos de negócios e conteúdo."
+        description="A programação que movimentou três dias intensos de negócios e conteúdo."
       />
 
       <div className="container-panifair mx-auto grid max-w-4xl gap-6">

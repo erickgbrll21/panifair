@@ -67,14 +67,6 @@ export function TrailerReel() {
               <span className="text-gradient-gold">do que vem por aí?</span>
             </h2>
           </Reveal>
-
-          <Reveal delay={0.1}>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[rgba(245,234,216,0.75)] md:text-lg">
-              Em menos de um minuto, um gostinho do que a PANIFAIR 2027 vai
-              colocar na mesa: negócios, tecnologia e o melhor da panificação
-              reunidos em um só lugar. Dê o play e descubra.
-            </p>
-          </Reveal>
         </div>
 
         {/* moldura cinematográfica do vídeo */}

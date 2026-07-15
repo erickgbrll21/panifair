@@ -7,12 +7,14 @@ interface LightRaysProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const RAY_PRESETS = [
-  { left: "12%", width: 240, rotate: -18, delay: 0, duration: 13 },
-  { left: "28%", width: 300, rotate: -8, delay: 2.2, duration: 15 },
-  { left: "44%", width: 260, rotate: 2, delay: 0.8, duration: 14 },
-  { left: "58%", width: 280, rotate: 10, delay: 3.5, duration: 16 },
-  { left: "72%", width: 250, rotate: 18, delay: 1.6, duration: 14 },
-  { left: "88%", width: 220, rotate: 26, delay: 4.8, duration: 15 },
+  { left: "6%", width: 300, rotate: -22, delay: 0, duration: 13 },
+  { left: "18%", width: 340, rotate: -14, delay: 1.4, duration: 15 },
+  { left: "32%", width: 320, rotate: -6, delay: 2.6, duration: 14 },
+  { left: "46%", width: 360, rotate: 2, delay: 0.8, duration: 16 },
+  { left: "58%", width: 340, rotate: 8, delay: 3.2, duration: 15 },
+  { left: "70%", width: 320, rotate: 14, delay: 1.8, duration: 14 },
+  { left: "82%", width: 300, rotate: 20, delay: 4.2, duration: 16 },
+  { left: "94%", width: 280, rotate: 28, delay: 2.4, duration: 15 },
 ] as const;
 
 export function LightRays({

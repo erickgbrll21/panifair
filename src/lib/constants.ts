@@ -23,10 +23,10 @@ export const CONTACT_LINK = {
   label: "Contato",
 } as const;
 
-export const PANIFAIR_WHATSAPP_NUMBER = "551140028922";
+export const PANIFAIR_WHATSAPP_NUMBER = "5531991753330";
 
-export const PANIFAIR_PHONE_DISPLAY = "+55 (11) 4002-8922";
-export const PANIFAIR_PHONE_TEL = "+551140028922";
+export const PANIFAIR_PHONE_DISPLAY = "+55 (31) 99175-3330";
+export const PANIFAIR_PHONE_TEL = "+5531991753330";
 export const PANIFAIR_EMAIL = "expositores@panifair.com.br";
 
 export const PANIFAIR_ADDRESS = {
@@ -57,8 +57,8 @@ export const BOOTH_INTEREST_OPTIONS = [
 ] as const;
 
 export const HERO_STATS = [
-  { value: 25000, suffix: "+", label: "Visitantes qualificados" },
-  { value: 450, suffix: "+", label: "Expositores nacionais e internacionais" },
+  { value: 22000, suffix: "+", label: "Visitantes qualificados" },
+  { value: 150, suffix: "+", label: "Expositores nacionais e internacionais" },
   { value: 35, suffix: "+", label: "Países representados" },
   { value: 92, suffix: "%", label: "Taxa de satisfação dos expositores" },
 ] as const;
@@ -67,54 +67,51 @@ export const WHY_EXHIBIT = [
   {
     icon: "TrendingUp",
     title: "Acesso direto ao mercado",
-    description:
-      "Conecte-se com tomadores de decisão de indústrias, distribuidores e redes de varejo que movimentam bilhões no setor de panificação.",
+    description: "Tomadores de decisão de indústrias, distribuidores e redes em um só lugar.",
   },
   {
     icon: "Users",
     title: "Networking de alto valor",
-    description:
-      "Encontre parceiros comerciais, distribuidores regionais e compradores corporativos em um único ambiente premium.",
+    description: "Parceiros comerciais e compradores corporativos frente a frente.",
   },
   {
     icon: "Target",
-    title: "Geração de leads qualificados",
-    description:
-      "Capture contatos B2B com intenção real de compra. Cada visitante é um potencial cliente, parceiro ou investidor.",
+    title: "Leads qualificados",
+    description: "Contatos B2B com intenção real de compra.",
   },
   {
     icon: "Award",
     title: "Posicionamento de marca",
-    description:
-      "Associe sua empresa à maior vitrine do setor. Visibilidade que impulsiona credibilidade e autoridade no mercado.",
+    description: "Sua empresa em destaque na maior vitrine do setor.",
   },
   {
     icon: "Globe",
     title: "Expansão internacional",
-    description:
-      "Apresente seus produtos a compradores de América Latina, Europa e Oriente Médio em busca de novos fornecedores.",
-  },
-  {
-    icon: "Zap",
-    title: "ROI comprovado",
-    description:
-      "Expositores reportam retorno médio de 4,2x sobre investimento em estande dentro dos primeiros 6 meses pós-feira.",
+    description: "Compradores da América Latina, Europa e Oriente Médio.",
   },
 ] as const;
 
-export const VISITOR_PROFILES = [
-  "Indústrias de alimentos",
-  "Fabricantes de panificação",
-  "Distribuidores e atacadistas",
-  "Equipamentos e maquinário",
-  "Ingredientes e insumos",
-  "Embalagens e rotulagem",
-  "Softwares e automação",
-  "Refrigeração comercial",
-  "Food service e cafeterias",
-  "Franquias e redes",
-  "Confeiteiros profissionais",
-  "Consultores do setor",
+export const VISITOR_GROUPS = [
+  {
+    title: "Indústria e fabricação",
+    icon: "Factory",
+    profiles: ["Indústrias de alimentos", "Fabricantes de panificação", "Equipamentos e maquinário"],
+  },
+  {
+    title: "Insumos e distribuição",
+    icon: "Wheat",
+    profiles: ["Ingredientes e insumos", "Embalagens e rotulagem", "Distribuidores e atacadistas"],
+  },
+  {
+    title: "Tecnologia e operação",
+    icon: "Cpu",
+    profiles: ["Softwares e automação", "Refrigeração comercial", "Consultores do setor"],
+  },
+  {
+    title: "Varejo e food service",
+    icon: "Store",
+    profiles: ["Cafeterias e food service", "Franquias e redes", "Confeiteiros profissionais"],
+  },
 ] as const;
 
 export const MARKET_INDICATORS = [
@@ -152,27 +149,27 @@ export const MARKET_INDICATORS = [
 export const BENEFITS = [
   {
     title: "Catálogo digital exclusivo",
-    description: "Sua marca destacada no app oficial com acesso a 25.000+ profissionais do setor.",
+    description: "Marca em destaque no app oficial, visto por 25.000+ profissionais.",
   },
   {
     title: "Matchmaking B2B",
-    description: "Agendamento de reuniões com compradores pré-qualificados antes do evento.",
+    description: "Reuniões agendadas com compradores pré-qualificados.",
   },
   {
     title: "Assessoria comercial",
-    description: "Equipe dedicada para maximizar seu fluxo de visitantes e conversões no estande.",
+    description: "Equipe dedicada a aumentar fluxo e conversões no estande.",
   },
   {
     title: "Cobertura de mídia",
-    description: "Presença em canais especializados, imprensa trade e redes sociais oficiais.",
+    description: "Imprensa trade, canais especializados e redes oficiais.",
   },
   {
     title: "Programação técnica",
-    description: "Palestras, demonstrações e workshops que atraem público qualificado ao pavilhão.",
+    description: "Palestras e workshops que atraem público qualificado.",
   },
   {
     title: "Área VIP para negócios",
-    description: "Salas privativas para fechamento de contratos com clientes estratégicos.",
+    description: "Salas privativas para fechar contratos estratégicos.",
   },
 ] as const;
 

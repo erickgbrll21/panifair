@@ -69,13 +69,22 @@ export function Curator() {
         <Reveal delay={0.3}>
           <div className="mt-10 border-t border-[rgba(176,132,80,0.25)] pt-7 md:mt-12">
             <p
-              className="text-3xl text-[#a67c52] md:text-4xl"
+              className="inline-flex items-center gap-3 text-3xl text-[#a67c52] md:text-4xl"
               style={{
                 fontFamily:
                   '"Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive',
               }}
             >
               Júnior Maffille
+              <span
+                aria-label="Itália"
+                title="Itália"
+                className="inline-flex h-5 w-7 shrink-0 overflow-hidden rounded-[3px] border border-[rgba(69,40,22,0.15)] shadow-[0_1px_2px_rgba(69,40,22,0.12)] md:h-6 md:w-8"
+              >
+                <span className="h-full w-1/3 bg-[#009246]" />
+                <span className="h-full w-1/3 bg-white" />
+                <span className="h-full w-1/3 bg-[#ce2b37]" />
+              </span>
             </p>
             <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#5c4d3e]">
               Idealizador e Curador

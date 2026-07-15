@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Building2,
   MapPin,
   Maximize2,
   Plane,
@@ -14,9 +13,8 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
 import { SectionBackgroundCharacters } from "@/components/sections/SectionBackgroundCharacters";
-import { NumberTicker } from "@/components/magicui/number-ticker";
 import { Button } from "@/components/ui/button";
-import { PANIFAIR_ADDRESS, VENUE_STATS } from "@/lib/constants";
+import { PANIFAIR_ADDRESS } from "@/lib/constants";
 
 const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(PANIFAIR_ADDRESS.mapsQuery)}`;
 
@@ -136,8 +134,8 @@ export function Location() {
         </Reveal>
 
         {/* Two-column info + highlights */}
-        <div className="mt-10 grid gap-6 lg:grid-cols-12 lg:gap-8">
-          <Reveal className="lg:col-span-7" delay={0.05}>
+        <div className="mt-10">
+          <Reveal delay={0.05}>
             <div className="glass-card h-full rounded-[1.75rem] border border-[rgba(122,85,50,0.2)] p-7 md:p-9">
               <div className="flex items-start gap-4">
                 <div className="icon-badge flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl">
@@ -186,48 +184,6 @@ export function Location() {
                         {time.split(" ")[1]}
                       </span>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal className="lg:col-span-5" delay={0.1}>
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] border border-[rgba(122,85,50,0.25)] bg-gradient-to-br from-[#452816] via-[#5a3520] to-[#3a2010] p-7 text-[#f8f3ee] shadow-[0_20px_50px_rgba(69,40,22,0.25)] md:p-9">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[rgba(232,200,122,0.18)] blur-3xl"
-              />
-              <div className="relative">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(232,200,122,0.3)] bg-[rgba(22,15,8,0.35)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[#e8c87a]">
-                  <Building2 className="h-3 w-3" />
-                  Infraestrutura
-                </div>
-                <h3 className="mt-4 text-xl font-bold leading-tight md:text-2xl">
-                  Pavilhão preparado para receber a indústria em grande escala
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#ddcfaa]">
-                  Área ampla com pé-direito elevado, padaria modelo operacional e estrutura
-                  completa para expositores, palestras e networking de alto nível.
-                </p>
-              </div>
-
-              <div className="relative mt-8 grid grid-cols-3 gap-3">
-                {VENUE_STATS.map((stat, i) => (
-                  <div
-                    key={stat.label}
-                    className="flex flex-col items-center rounded-2xl border border-[rgba(232,200,122,0.2)] bg-[rgba(22,15,8,0.35)] p-4 text-center backdrop-blur-sm"
-                    style={{ animationDelay: `${i * 80}ms` }}
-                  >
-                    <p className="text-2xl font-extrabold leading-none text-[#e8c87a] md:text-[1.75rem]">
-                      <NumberTicker value={stat.value} />
-                    </p>
-                    <p className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#e8c87a]/80">
-                      {stat.suffix.trim()}
-                    </p>
-                    <p className="mt-2 text-[10px] font-semibold uppercase leading-tight tracking-wider text-[#ddcfaa]">
-                      {stat.label}
-                    </p>
                   </div>
                 ))}
               </div>

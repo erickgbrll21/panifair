@@ -9,7 +9,6 @@ const LEGEND = [
   { color: "#ffe000", label: "ESTANDES “A”" },
   { color: "#1f9d4d", label: "ESTANDES “B”" },
   { color: "#b8b8b8", label: "ESTANDES “C”" },
-  { color: "#2f52c9", label: "ESTANDES SEDE" },
 ] as const;
 
 export function FloorPlan() {
