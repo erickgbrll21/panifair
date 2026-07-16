@@ -48,30 +48,9 @@ export const EDICAO_2026_HIGHLIGHTS = [
 ] as const;
 
 export const EDICAO_2026_MOMENTS = [
-  {
-    title: "Abertura oficial",
-    description: "Cerimônia de abertura com autoridades do setor e lançamento da edição 2027.",
-    image:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-  },
-  {
-    title: "Pavilhão de equipamentos",
-    description: "Demonstrações de fornos, automação e linhas de produção em funcionamento.",
-    image:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
-  },
-  {
-    title: "Networking B2B",
-    description: "Salas de reunião e encontros entre indústrias, distribuidores e varejo.",
-    image:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80",
-  },
-  {
-    title: "Encerramento",
-    description: "Balanço positivo e anúncio das datas da próxima edição em 2027.",
-    image:
-      "https://images.unsplash.com/photo-1556912173-46c5c23b8a79?w=800&q=80",
-  },
+  "/edicao-2026/galeria/01-padaria-modelo.jpg",
+  "/edicao-2026/galeria/02-entrada.jpg",
+  "/edicao-2026/galeria/03-gabi-equipamentos.png",
 ] as const;
 
 export const EDICAO_2026_TIMELINE = [

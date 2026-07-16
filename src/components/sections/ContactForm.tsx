@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { MessageCircle, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BOOTH_INTEREST_OPTIONS } from "@/lib/constants";
 import {
@@ -11,9 +11,9 @@ import {
 } from "@/lib/whatsapp";
 
 const fieldClassName =
-  "w-full rounded-xl border border-[rgba(122,85,50,0.25)] bg-[rgba(255,252,245,0.6)] px-4 py-3 text-sm text-[#452816] outline-none transition-colors placeholder:text-[#9a8b7a] focus:border-[rgba(176,132,80,0.6)] focus:ring-2 focus:ring-[rgba(176,132,80,0.2)]";
+  "w-full rounded-xl border border-[rgba(122,85,50,0.25)] bg-[rgba(255,252,245,0.6)] px-3.5 py-2.5 text-sm text-[#452816] outline-none transition-colors placeholder:text-[#9a8b7a] focus:border-[rgba(176,132,80,0.6)] focus:ring-2 focus:ring-[rgba(176,132,80,0.2)]";
 
-const labelClassName = "mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-[#7a5532]";
+const labelClassName = "mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7a5532]";
 
 const initialForm: ExhibitorContactPayload = {
   name: "",
@@ -39,8 +39,8 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-6 md:p-8">
-      <div className="grid gap-5 md:grid-cols-2">
+    <form onSubmit={handleSubmit} className="glass-card h-fit w-full max-w-2xl self-start rounded-2xl px-5 pt-5 pb-2 md:px-6 md:pt-6 md:pb-3">
+      <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label htmlFor="contact-name" className={labelClassName}>
             Nome completo
@@ -106,7 +106,7 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-4">
         <label htmlFor="contact-booth" className={labelClassName}>
           Interesse em estande
         </label>
@@ -125,27 +125,26 @@ export function ContactForm() {
         </select>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-4">
         <label htmlFor="contact-message" className={labelClassName}>
           Mensagem <span className="normal-case tracking-normal text-[#6b5f52]">(opcional)</span>
         </label>
         <textarea
           id="contact-message"
-          rows={4}
+          rows={3}
           value={form.message}
           onChange={(event) => updateField("message", event.target.value)}
-          className={`${fieldClassName} resize-y min-h-[120px]`}
+          className={`${fieldClassName} min-h-[88px] resize-y`}
           placeholder="Conte um pouco sobre sua empresa e o que busca na feira..."
         />
       </div>
 
-      <Button type="submit" size="lg" className="mt-8 w-full sm:w-auto">
-        <MessageCircle className="h-4 w-4" />
+      <Button type="submit" className="mt-5 w-full sm:w-auto">
         Enviar pelo WhatsApp
         <Send className="h-4 w-4" />
       </Button>
 
-      <p className="mt-4 text-xs leading-relaxed text-[#6b5f52]">
+      <p className="mt-2 pb-0 text-[11px] leading-snug text-[#6b5f52]">
         Ao enviar, você será redirecionado para o WhatsApp da PANIFAIR com sua mensagem
         preenchida automaticamente.
       </p>

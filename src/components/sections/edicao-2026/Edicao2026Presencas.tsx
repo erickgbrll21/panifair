@@ -77,18 +77,20 @@ export function Edicao2026Presencas() {
             <Reveal key={person.name} delay={0.1 + i * 0.06} className="h-full">
               <article className="glass-card group flex h-full flex-col overflow-hidden rounded-2xl transition-colors duration-300 hover:border-[#a67c52]">
                 {"image" in person && person.image ? (
-                  <div className="relative aspect-[4/3] w-full bg-white">
+                  <div className="relative flex min-h-[260px] items-end justify-center bg-[#0a0a0a] px-4 pb-0 pt-5 sm:min-h-[300px]">
                     <Image
                       src={person.image}
                       alt={`${person.name} — presença especial PANIFAIR 2026`}
-                      fill
-                      className="object-contain object-bottom"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      width={400}
+                      height={520}
+                      className="h-auto w-full max-w-[240px] object-contain object-bottom sm:max-w-[270px]"
+                      sizes="(max-width: 768px) 240px, 270px"
+                      draggable={false}
                     />
                   </div>
                 ) : null}
 
-                <div className="flex flex-1 flex-col p-7">
+                <div className="flex flex-1 flex-col p-6">
                   <h3 className="fg-primary text-xl font-extrabold tracking-tight md:text-2xl">
                     {person.name}
                   </h3>
@@ -98,10 +100,8 @@ export function Edicao2026Presencas() {
                   </p>
 
                   {person.bio ? (
-                    <p className="fg-muted mt-4 flex-1 text-sm leading-relaxed">{person.bio}</p>
-                  ) : (
-                    <div className="flex-1" />
-                  )}
+                    <p className="fg-muted mt-3 flex-1 text-sm leading-relaxed">{person.bio}</p>
+                  ) : null}
                 </div>
               </article>
             </Reveal>

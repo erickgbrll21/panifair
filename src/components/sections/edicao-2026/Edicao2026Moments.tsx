@@ -15,23 +15,28 @@ export function Edicao2026Moments() {
         description="Imagens que registram a energia, o networking e a vitrine tecnológica da PANIFAIR 2026."
       />
 
-      <div className="container-panifair grid gap-8 md:grid-cols-2">
-        {EDICAO_2026_MOMENTS.map((moment, i) => (
-          <Reveal key={moment.title} delay={i * 0.08}>
+      <div className="container-panifair grid gap-6 md:grid-cols-2 lg:gap-8">
+        {EDICAO_2026_MOMENTS.map((image, i) => (
+          <Reveal
+            key={image}
+            delay={i * 0.08}
+            className={i === 0 ? "md:col-span-2" : undefined}
+          >
             <article className="group overflow-hidden rounded-2xl border border-[rgba(122,85,50,0.2)] bg-white/40">
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div
+                className={`relative overflow-hidden ${i === 0 ? "aspect-[21/9]" : "aspect-[16/10]"}`}
+              >
                 <Image
-                  src={moment.image}
-                  alt={moment.title}
+                  src={image}
+                  alt={`PANIFAIR 2026 — foto ${i + 1}`}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes={
+                    i === 0
+                      ? "(max-width: 768px) 100vw, 1200px"
+                      : "(max-width: 768px) 100vw, 50vw"
+                  }
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1410]/70 via-transparent to-transparent" />
-              </div>
-              <div className="p-6">
-                <h3 className="fg-primary text-lg font-semibold">{moment.title}</h3>
-                <p className="fg-muted mt-2 text-sm leading-relaxed">{moment.description}</p>
               </div>
             </article>
           </Reveal>

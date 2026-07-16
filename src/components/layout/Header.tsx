@@ -3,14 +3,18 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, EDICAO_2026_LINK } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Header() {
+  const pathname = usePathname();
+  const isEdicao2026 = pathname.startsWith("/edicao-2026");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const solidHeader = scrolled || isEdicao2026;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -30,7 +34,7 @@ export function Header() {
       className={cn(
         "site-header fixed inset-x-0 top-0 z-50 transition-all duration-500",
         "pt-[env(safe-area-inset-top,0px)]",
-        scrolled
+        solidHeader
           ? "border-b border-[rgba(122,85,50,0.2)] bg-[#ddcfaa]/95 shadow-[0_4px_24px_rgba(122,85,50,0.12)] backdrop-blur-xl"
           : "bg-[#ddcfaa]/40 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none",
       )}
@@ -99,6 +103,11 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <Button variant="outline" className="mt-2 w-full text-[#7a5532] hover:text-[#452816]" asChild>
+            <Link href={EDICAO_2026_LINK.href} onClick={() => setMobileOpen(false)}>
+              Panifair 2026
+            </Link>
+          </Button>
           <Button className="mt-4 w-full" asChild>
             <Link href="/contato" onClick={() => setMobileOpen(false)}>
               Quero ser expositor

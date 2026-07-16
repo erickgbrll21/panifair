@@ -50,10 +50,11 @@ export const VENUE_STATS = [
 ] as const;
 
 export const BOOTH_INTEREST_OPTIONS = [
-  "Estande Standard",
-  "Estande Premium",
-  "Estande Ilha",
-  "Ainda não sei — quero orientação",
+  "Estande AA",
+  "Estande A",
+  "Estande B",
+  "Estande C",
+  "Ainda não sei, queria uma orientação",
 ] as const;
 
 export const HERO_STATS = [

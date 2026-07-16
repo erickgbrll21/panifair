@@ -11,14 +11,14 @@ export function Edicao2026Hero() {
     <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-[#ddcfaa] pb-16 pt-32 md:min-h-[75vh] md:pb-24">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1556912173-46c5c23b8a79?w=1920&q=80"
-          alt="PANIFAIR 2026 — feira de panificação"
+          src="/edicao-2026/hero.jpg"
+          alt="Entrada da PANIFAIR 2026 — Seja bem-vindo"
           fill
-          className="object-cover opacity-40"
+          className="object-cover object-center opacity-70"
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/45" />
       </div>
 
       <DotPattern className="opacity-15" />
@@ -35,7 +35,7 @@ export function Edicao2026Hero() {
 
         <Reveal delay={0.05}>
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(166,124,82,0.35)] bg-[rgba(166,124,82,0.08)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c4966a]">
-            Edição encerrada · Sucesso total
+            Edição encerrada
           </span>
         </Reveal>
 

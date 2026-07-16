@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import {
   NAV_LINKS,
   EDICAO_2026_LINK,
-  EVENT_DATES_LABEL,
   PANIFAIR_ADDRESS,
   PANIFAIR_EMAIL,
   PANIFAIR_PHONE_DISPLAY,
   PANIFAIR_PHONE_TEL,
 } from "@/lib/constants";
+
+const DEVELOPER_WHATSAPP_URL = "https://wa.me/55319917238789";
 
 export function Footer() {
   return (
@@ -99,12 +100,22 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-[rgba(122,85,50,0.15)] pt-8 text-xs text-[#5c4d3e] md:flex-row">
+        <div className="mt-16 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-[rgba(122,85,50,0.15)] pt-8 text-xs text-[#5c4d3e]">
           <p>
             © {new Date().getFullYear()} PANIFAIR — Feira Internacional da Panificação. Todos os
             direitos reservados.
           </p>
-          <p>{EVENT_DATES_LABEL} · {PANIFAIR_ADDRESS.cityState}</p>
+          <div className="text-right">
+            <p className="text-[11px] font-medium text-[#7a6b5c]">Design &amp; Development</p>
+            <a
+              href={DEVELOPER_WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-0.5 inline-block font-medium text-[#7a5532] transition-colors hover:text-[#a3733e]"
+            >
+              Erick Rezende
+            </a>
+          </div>
         </div>
       </div>
     </footer>
