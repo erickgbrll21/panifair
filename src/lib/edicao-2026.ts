@@ -47,10 +47,11 @@ export const EDICAO_2026_HIGHLIGHTS = [
   },
 ] as const;
 
-export const EDICAO_2026_MOMENTS = [
-  "/edicao-2026/galeria/01-padaria-modelo.jpg",
-  "/edicao-2026/galeria/02-entrada.jpg",
-  "/edicao-2026/galeria/03-gabi-equipamentos.png",
+export const EDICAO_2026_GALLERY = [
+  { type: "video", src: "/edicao-2026/galeria/video-site2.mp4" },
+  { type: "image", src: "/edicao-2026/galeria/01-padaria-modelo.jpg" },
+  { type: "image", src: "/edicao-2026/galeria/02-entrada.jpg" },
+  { type: "image", src: "/edicao-2026/galeria/03-gabi-equipamentos.png" },
 ] as const;
 
 export const EDICAO_2026_TIMELINE = [
@@ -528,20 +529,3 @@ export const EDICAO_2026_PROGRAMACAO_POR_DIA = {
   "16/05": EDICAO_2026_PROGRAMACAO_SABADO,
   "17/05": EDICAO_2026_PROGRAMACAO_DOMINGO,
 } as const;
-
-export const EDICAO_2026_QUOTES = [
-  {
-    quote:
-      "A edição de 2026 superou todas as expectativas. Voltamos com a maior carteira de pedidos da história da empresa.",
-    author: "Mariana Costa",
-    role: "Diretora Comercial",
-    company: "Fornos Industrial Brasil",
-  },
-  {
-    quote:
-      "O matchmaking B2B foi decisivo. Em dois dias fechamos acordos com redes que buscávamos há mais de um ano.",
-    author: "Eduardo Nunes",
-    role: "CEO",
-    company: "Grano & Arte Ingredientes",
-  },
-] as const;

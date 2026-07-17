@@ -59,7 +59,7 @@ export function Curator() {
               <span className="h-1 w-1 rotate-45 bg-[#b08450]" />
             </span>
           </div>
-          <h3 className="text-gradient-bronze text-4xl font-extrabold uppercase tracking-[0.04em] md:text-5xl lg:text-[3.4rem] lg:leading-none">
+          <h3 className="text-4xl font-extrabold uppercase tracking-[0.04em] text-[#a3733f] md:text-5xl lg:text-[3.4rem] lg:leading-none">
             da Panifair
           </h3>
         </Reveal>

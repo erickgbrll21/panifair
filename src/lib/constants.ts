@@ -201,37 +201,6 @@ export const BOOTH_TYPES = [
   },
 ] as const;
 
-export const TESTIMONIALS = [
-  {
-    quote:
-      "Fechamos contratos que representam 40% da nossa meta anual em apenas três dias. A PANIFAIR é o evento mais estratégico do nosso calendário comercial.",
-    author: "Dr. Márcio Botelho",
-    role: "CEO e Fundador",
-    company: "Botelho e Castro Advogados",
-  },
-  {
-    quote:
-      "Conseguimos 847 leads qualificados e 23 distribuidores interessados. O ROI superou qualquer ação de marketing B2B que já realizamos.",
-    author: "Ygor Alouan",
-    role: "CEO e Co-Fundador",
-    company: "Grupo Alouan Business Solutions",
-  },
-  {
-    quote:
-      "Nossa marca ganhou visibilidade internacional. Recebemos propostas de exportação para 8 países que jamais teríamos alcançado sozinhos.",
-    author: "Willam Sferra",
-    role: "CEO e Fundador",
-    company: "KTG Group",
-  },
-  {
-    quote:
-      "A PANIFAIR conectou nossa marca a parceiros estratégicos e fortaleceu nossa presença no mercado com resultados concretos de negócios.",
-    author: "Priscila Infanger",
-    role: "CHRO",
-    company: "Cinépolis",
-  },
-] as const;
-
 export const APOIADORES = [
   {
     name: "Maffille Consultoria e Assessoria",

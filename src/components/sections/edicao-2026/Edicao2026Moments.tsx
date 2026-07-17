@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionSideDecor } from "@/components/ui/section-side-decor";
-import { EDICAO_2026_MOMENTS } from "@/lib/edicao-2026";
+import { EDICAO_2026_GALLERY } from "@/lib/edicao-2026";
 
 export function Edicao2026Moments() {
   return (
@@ -12,13 +12,13 @@ export function Edicao2026Moments() {
       <SectionHeading
         eyebrow="Galeria"
         title="Momentos inesquecíveis"
-        description="Imagens que registram a energia, o networking e a vitrine tecnológica da PANIFAIR 2026."
+        description="Imagens e vídeos que registram a energia, o networking e a vitrine tecnológica da PANIFAIR 2026."
       />
 
       <div className="container-panifair grid gap-6 md:grid-cols-2 lg:gap-8">
-        {EDICAO_2026_MOMENTS.map((image, i) => (
+        {EDICAO_2026_GALLERY.map((item, i) => (
           <Reveal
-            key={image}
+            key={item.src}
             delay={i * 0.08}
             className={i === 0 ? "md:col-span-2" : undefined}
           >
@@ -26,17 +26,28 @@ export function Edicao2026Moments() {
               <div
                 className={`relative overflow-hidden ${i === 0 ? "aspect-[21/9]" : "aspect-[16/10]"}`}
               >
-                <Image
-                  src={image}
-                  alt={`PANIFAIR 2026 — foto ${i + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes={
-                    i === 0
-                      ? "(max-width: 768px) 100vw, 1200px"
-                      : "(max-width: 768px) 100vw, 50vw"
-                  }
-                />
+                {item.type === "video" ? (
+                  <video
+                    src={item.src}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover"
+                    aria-label="Vídeo da PANIFAIR 2026"
+                  />
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={`PANIFAIR 2026 — foto ${i}`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes={
+                      i === 0
+                        ? "(max-width: 768px) 100vw, 1200px"
+                        : "(max-width: 768px) 100vw, 50vw"
+                    }
+                  />
+                )}
               </div>
             </article>
           </Reveal>

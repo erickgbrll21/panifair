@@ -80,8 +80,8 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.05}>
-          <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.02] tracking-[-0.02em] md:text-[4.5rem] lg:text-7xl xl:text-8xl">
-            <span className="text-gradient-bronze">PANIFAIR 2027</span>
+          <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.02] tracking-[-0.02em] text-[#a3733f] md:text-[4.5rem] lg:text-7xl xl:text-8xl">
+            PANIFAIR 2027
           </h1>
         </Reveal>
 

@@ -41,7 +41,7 @@ export function Edicao2026Hero() {
 
         <Reveal delay={0.1}>
           <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-[#f5f0eb] md:text-5xl lg:text-6xl">
-            <span className="text-gradient-bronze">PANIFAIR 2026</span>
+            <span className="text-gradient-bronze-bright">PANIFAIR 2026</span>
             <br />
             Como foi a feira
           </h1>

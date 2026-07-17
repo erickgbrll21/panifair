@@ -48,3 +48,7 @@ next-env.d.ts
 # except the site video used by the Local section
 !public/panifair-local.mp4
 !public/trailer-panifair.mp4
+!public/depoimentos/coca-cola-2027.mp4
+!public/depoimentos/depoimentos-renderizados.mp4
+!public/depoimentos/gabi-equipamentos-2027.mp4
+!public/edicao-2026/galeria/video-site2.mp4

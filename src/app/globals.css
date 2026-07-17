@@ -186,7 +186,27 @@ body {
 }
 
 .text-gradient-bronze {
-  background: linear-gradient(135deg, var(--color-bronze-gold) 0%, var(--color-bronze-light) 35%, var(--color-bronze) 65%, var(--color-bronze-dark) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-bronze-dark) 0%,
+    var(--color-bronze) 28%,
+    var(--color-bronze-light) 58%,
+    var(--color-bronze-gold) 82%,
+    var(--color-bronze-dark) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-bronze-bright {
+  background: linear-gradient(
+    135deg,
+    var(--color-bronze-gold) 0%,
+    var(--color-bronze-light) 35%,
+    var(--color-bronze) 65%,
+    var(--color-bronze-dark) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
