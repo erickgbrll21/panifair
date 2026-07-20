@@ -1,0 +1,153 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BOOTH_INTEREST_OPTIONS } from "@/lib/constants";
+import {
+  buildExhibitorWhatsAppMessage,
+  buildWhatsAppUrl,
+  type ExhibitorContactPayload,
+} from "@/lib/whatsapp";
+
+const fieldClassName =
+  "w-full rounded-xl border border-[rgba(122,85,50,0.25)] bg-[rgba(255,252,245,0.6)] px-3.5 py-2.5 text-sm text-[#452816] outline-none transition-colors placeholder:text-[#9a8b7a] focus:border-[rgba(176,132,80,0.6)] focus:ring-2 focus:ring-[rgba(176,132,80,0.2)]";
+
+const labelClassName = "mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7a5532]";
+
+const initialForm: ExhibitorContactPayload = {
+  name: "",
+  company: "",
+  email: "",
+  phone: "",
+  boothInterest: BOOTH_INTEREST_OPTIONS[0],
+  message: "",
+};
+
+export function ContactForm() {
+  const [form, setForm] = useState(initialForm);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const message = buildExhibitorWhatsAppMessage(form);
+    window.location.href = buildWhatsAppUrl(message);
+  };
+
+  const updateField = <K extends keyof ExhibitorContactPayload>(key: K, value: ExhibitorContactPayload[K]) => {
+    setForm((current) => ({ ...current, [key]: value }));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="glass-card h-fit w-full max-w-2xl self-start rounded-2xl px-5 pt-5 pb-2 md:px-6 md:pt-6 md:pb-3">
+      <div className="grid gap-4 md:grid-cols-2">
+        <div>
+          <label htmlFor="contact-name" className={labelClassName}>
+            Nome completo
+          </label>
+          <input
+            id="contact-name"
+            type="text"
+            required
+            autoComplete="name"
+            value={form.name}
+            onChange={(event) => updateField("name", event.target.value)}
+            className={fieldClassName}
+            placeholder="Seu nome"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="contact-company" className={labelClassName}>
+            Empresa
+          </label>
+          <input
+            id="contact-company"
+            type="text"
+            required
+            autoComplete="organization"
+            value={form.company}
+            onChange={(event) => updateField("company", event.target.value)}
+            className={fieldClassName}
+            placeholder="Nome da empresa"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="contact-email" className={labelClassName}>
+            E-mail
+          </label>
+          <input
+            id="contact-email"
+            type="email"
+            required
+            autoComplete="email"
+            value={form.email}
+            onChange={(event) => updateField("email", event.target.value)}
+            className={fieldClassName}
+            placeholder="seu@email.com"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="contact-phone" className={labelClassName}>
+            Telefone / WhatsApp
+          </label>
+          <input
+            id="contact-phone"
+            type="tel"
+            required
+            autoComplete="tel"
+            value={form.phone}
+            onChange={(event) => updateField("phone", event.target.value)}
+            className={fieldClassName}
+            placeholder="(31) 99175-3330"
+          />
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <label htmlFor="contact-booth" className={labelClassName}>
+          Interesse em estande
+        </label>
+        <select
+          id="contact-booth"
+          required
+          value={form.boothInterest}
+          onChange={(event) => updateField("boothInterest", event.target.value)}
+          className={fieldClassName}
+        >
+          {BOOTH_INTEREST_OPTIONS.map((option) => (
+            <option key={option} value={option} className="bg-[#f5eedc] text-[#452816]">
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="mt-4">
+        <label htmlFor="contact-message" className={labelClassName}>
+          Mensagem <span className="normal-case tracking-normal text-[#6b5f52]">(opcional)</span>
+        </label>
+        <textarea
+          id="contact-message"
+          rows={3}
+          value={form.message}
+          onChange={(event) => updateField("message", event.target.value)}
+          className={`${fieldClassName} min-h-[88px] resize-y`}
+          placeholder="Conte um pouco sobre sua empresa e o que busca na feira..."
+        />
+      </div>
+
+      <Button type="submit" className="mt-5 w-full sm:w-auto">
+        Enviar pelo WhatsApp
+        <Send className="h-4 w-4" />
+      </Button>
+
+      <p className="mt-2 pb-0 text-[11px] leading-snug text-[#6b5f52]">
+        Ao enviar, você será redirecionado para o WhatsApp da PANIFAIR com sua mensagem
+        preenchida automaticamente.
+      </p>
+    </form>
+  );
+}

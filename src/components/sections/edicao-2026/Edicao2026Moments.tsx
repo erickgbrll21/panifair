@@ -1,0 +1,54 @@
+import Image from "next/image";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { SectionSideDecor } from "@/components/ui/section-side-decor";
+import { EDICAO_2026_GALLERY } from "@/lib/edicao-2026";
+
+export function Edicao2026Moments() {
+  return (
+    <section className="section-cream section-padding relative overflow-hidden">
+      <SectionSideDecor />
+
+      <SectionHeading
+        eyebrow="Galeria"
+        title="Momentos inesquecíveis"
+        description="Imagens e vídeos que registram a energia, o networking e a vitrine tecnológica da PANIFAIR 2026."
+      />
+
+      <div className="container-panifair grid gap-6 md:grid-cols-2 lg:gap-8">
+        {EDICAO_2026_GALLERY.map((item, i) => (
+          <article
+            key={item.src}
+            className={`group overflow-hidden rounded-2xl border border-[rgba(122,85,50,0.2)] bg-white/40 ${i === 0 ? "md:col-span-2" : ""}`}
+          >
+            <div
+              className={`relative overflow-hidden ${i === 0 ? "aspect-[21/9]" : "aspect-[16/10]"}`}
+            >
+              {item.type === "video" ? (
+                <video
+                  src={item.src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="h-full w-full object-cover"
+                  aria-label="Vídeo da PANIFAIR 2026"
+                />
+              ) : (
+                <Image
+                  src={item.src}
+                  alt={`PANIFAIR 2026 — foto ${i}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes={
+                    i === 0
+                      ? "(max-width: 768px) 100vw, 1200px"
+                      : "(max-width: 768px) 100vw, 50vw"
+                  }
+                />
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
