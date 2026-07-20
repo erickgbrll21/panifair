@@ -41,8 +41,9 @@ export function CuratorPillars() {
       const prefersReducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-      if (prefersReducedMotion) {
+      if (prefersReducedMotion || isMobile) {
         gsap.set(pillars, { clearProps: "all" });
         if (lineRef.current) gsap.set(lineRef.current, { clearProps: "all" });
         return;

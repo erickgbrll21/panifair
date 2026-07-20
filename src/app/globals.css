@@ -493,10 +493,10 @@ body {
 /* Reveal (fade-up ao entrar no viewport) — classes aplicadas via JS em reveal.tsx */
 .reveal-hidden {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(24px);
   transition:
-    opacity 0.7s var(--ease-out) var(--reveal-delay, 0s),
-    transform 0.7s var(--ease-out) var(--reveal-delay, 0s);
+    opacity 0.45s var(--ease-out) var(--reveal-delay, 0s),
+    transform 0.45s var(--ease-out) var(--reveal-delay, 0s);
 }
 
 .reveal-visible {

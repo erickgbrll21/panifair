@@ -20,6 +20,13 @@ function formatValue(val: number, decimals: number, prefix: string, suffix: stri
 
 const DURATION_MS = 1600;
 
+function shouldSkipTickerAnimation() {
+  return (
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    window.matchMedia("(max-width: 767px)").matches
+  );
+}
+
 export function NumberTicker({
   value,
   className,
@@ -33,7 +40,7 @@ export function NumberTicker({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (shouldSkipTickerAnimation()) return;
 
     let raf = 0;
 
@@ -53,7 +60,7 @@ export function NumberTicker({
         el.textContent = formatValue(0, decimalPlaces, prefix, suffix);
         raf = requestAnimationFrame(tick);
       },
-      { rootMargin: "0px 0px -15% 0px" },
+      { rootMargin: "0px 0px 8% 0px", threshold: 0.01 },
     );
     observer.observe(el);
 

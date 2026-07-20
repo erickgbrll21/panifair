@@ -9,9 +9,16 @@ interface RevealProps {
   delay?: number;
 }
 
+function shouldSkipReveal() {
+  return (
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    window.matchMedia("(max-width: 767px)").matches
+  );
+}
+
 /**
- * Fade-up ao entrar no viewport. Sem JS o conteúdo permanece visível:
- * o estado oculto só é aplicado depois que o observer assume.
+ * Fade-up ao entrar no viewport. No mobile o conteúdo fica visível imediatamente
+ * para evitar atraso ao rolar. Sem JS o conteúdo permanece visível.
  */
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,7 +26,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (shouldSkipReveal()) return;
 
     el.classList.add("reveal-hidden");
 
@@ -29,7 +36,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
         observer.disconnect();
         requestAnimationFrame(() => el.classList.add("reveal-visible"));
       },
-      { rootMargin: "0px 0px -10% 0px" },
+      { rootMargin: "0px 0px 8% 0px", threshold: 0.01 },
     );
     observer.observe(el);
 
