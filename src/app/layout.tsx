@@ -156,7 +156,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={cn("scroll-smooth", poppins.variable, "font-sans", geist.variable)}>
       <head>
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
